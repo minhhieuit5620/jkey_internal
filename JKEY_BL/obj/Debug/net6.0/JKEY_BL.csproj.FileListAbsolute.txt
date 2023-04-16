@@ -1,0 +1,12 @@
+F:\_123\JKEY_BL\bin\Debug\net6.0\JKEY_BL.deps.json
+F:\_123\JKEY_BL\bin\Debug\net6.0\JKEY_BL.dll
+F:\_123\JKEY_BL\bin\Debug\net6.0\JKEY_BL.pdb
+F:\_123\JKEY_BL\obj\Debug\net6.0\JKEY_BL.csproj.AssemblyReference.cache
+F:\_123\JKEY_BL\obj\Debug\net6.0\JKEY_BL.GeneratedMSBuildEditorConfig.editorconfig
+F:\_123\JKEY_BL\obj\Debug\net6.0\JKEY_BL.AssemblyInfoInputs.cache
+F:\_123\JKEY_BL\obj\Debug\net6.0\JKEY_BL.AssemblyInfo.cs
+F:\_123\JKEY_BL\obj\Debug\net6.0\JKEY_BL.csproj.CoreCompileInputs.cache
+F:\_123\JKEY_BL\obj\Debug\net6.0\JKEY_BL.dll
+F:\_123\JKEY_BL\obj\Debug\net6.0\refint\JKEY_BL.dll
+F:\_123\JKEY_BL\obj\Debug\net6.0\JKEY_BL.pdb
+F:\_123\JKEY_BL\obj\Debug\net6.0\ref\JKEY_BL.dll

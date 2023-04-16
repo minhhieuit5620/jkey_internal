@@ -1,0 +1,17 @@
+F:\_123\JKEY_DL\bin\Debug\net6.0\JKEY_DL.deps.json
+F:\_123\JKEY_DL\bin\Debug\net6.0\JKEY_DL.runtimeconfig.json
+F:\_123\JKEY_DL\bin\Debug\net6.0\JKEY_DL.dll
+F:\_123\JKEY_DL\bin\Debug\net6.0\JKEY_DL.pdb
+F:\_123\JKEY_DL\obj\Debug\net6.0\JKEY_DL.csproj.AssemblyReference.cache
+F:\_123\JKEY_DL\obj\Debug\net6.0\JKEY_DL.GeneratedMSBuildEditorConfig.editorconfig
+F:\_123\JKEY_DL\obj\Debug\net6.0\JKEY_DL.AssemblyInfoInputs.cache
+F:\_123\JKEY_DL\obj\Debug\net6.0\JKEY_DL.AssemblyInfo.cs
+F:\_123\JKEY_DL\obj\Debug\net6.0\JKEY_DL.csproj.CoreCompileInputs.cache
+F:\_123\JKEY_DL\obj\Debug\net6.0\JKEY_DL.dll
+F:\_123\JKEY_DL\obj\Debug\net6.0\refint\JKEY_DL.dll
+F:\_123\JKEY_DL\obj\Debug\net6.0\JKEY_DL.pdb
+F:\_123\JKEY_DL\obj\Debug\net6.0\JKEY_DL.genruntimeconfig.cache
+F:\_123\JKEY_DL\obj\Debug\net6.0\ref\JKEY_DL.dll
+F:\_123\JKEY_DL\bin\Debug\net6.0\JKEY_COMMON.dll
+F:\_123\JKEY_DL\bin\Debug\net6.0\JKEY_COMMON.pdb
+F:\_123\JKEY_DL\obj\Debug\net6.0\JKEY_DL.csproj.CopyComplete
