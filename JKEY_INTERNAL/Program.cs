@@ -1,4 +1,5 @@
 using JKEY_DL.DataContext;
+using JKEY_INTERNAL.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,8 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 //Connect DB
 DataContext.SqlConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
-builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer(DataContext.SqlConnectionString));
-// Add services to the container.
+builder.Services.AddDbContext<JkeyInternalContext>(x => x.UseSqlServer(DataContext.SqlConnectionString));
+//// Add services to the container.
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

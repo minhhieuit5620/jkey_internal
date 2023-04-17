@@ -8,37 +8,41 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = JKEY_INTERNAL
 build_property.RootNamespace = JKEY_INTERNAL
-build_property.ProjectDir = F:\_123\JKEY_INTERNAL\
+build_property.ProjectDir = F:\jkey_internal\JKEY_INTERNAL\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = F:\_123\JKEY_INTERNAL
+build_property.MSBuildProjectDirectory = F:\jkey_internal\JKEY_INTERNAL
 build_property._RazorSourceGeneratorDebug = 
 
-[F:/_123/JKEY_INTERNAL/Views/Home/Index.cshtml]
+[F:/jkey_internal/JKEY_INTERNAL/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/_123/JKEY_INTERNAL/Views/Home/Privacy.cshtml]
+[F:/jkey_internal/JKEY_INTERNAL/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/_123/JKEY_INTERNAL/Views/Shared/Error.cshtml]
+[F:/jkey_internal/JKEY_INTERNAL/Views/Page/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/jkey_internal/JKEY_INTERNAL/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/_123/JKEY_INTERNAL/Views/Shared/_ValidationScriptsPartial.cshtml]
+[F:/jkey_internal/JKEY_INTERNAL/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/_123/JKEY_INTERNAL/Views/_ViewImports.cshtml]
+[F:/jkey_internal/JKEY_INTERNAL/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/_123/JKEY_INTERNAL/Views/_ViewStart.cshtml]
+[F:/jkey_internal/JKEY_INTERNAL/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/_123/JKEY_INTERNAL/Views/Shared/_Layout.cshtml]
+[F:/jkey_internal/JKEY_INTERNAL/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-rq0fm5ib19

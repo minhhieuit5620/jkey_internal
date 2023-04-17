@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\JKEY_COMMON\JKEY_COMMON.csproj" />
+    <ProjectReference Include="..\JKEY_DL\JKEY_DL.csproj" />
+  </ItemGroup>
+
 </Project>

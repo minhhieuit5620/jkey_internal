@@ -11,21 +11,21 @@ namespace JKEY_COMMON.Entities
         /// <summary>
         /// Ngày tạo
         /// </summary>
-        public DateTime? CreatedDate { get; set; } = DateTime.Now;
+        public DateTime? DateCreated { get; set; } = DateTime.Now;
 
         /// <summary>
         /// Người tạo
         /// </summary>
-        public string? CreatedBy { get; set; }
+        public Guid? UserCreated { get; set; }
 
         /// <summary>
         /// Ngày sửa gần nhất
         /// </summary>
-        public DateTime? ModifiedDate { get; set; } = DateTime.Now;
+        public DateTime? DateModified { get; set; } = DateTime.Now;
 
         /// <summary>
         /// Người sửa gần nhất
         /// </summary>
-        public string? ModifiedBy { get; set; } 
+        public Guid? UserModified { get; set; } 
     }
 }

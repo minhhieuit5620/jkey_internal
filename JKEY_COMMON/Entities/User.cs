@@ -1,58 +1,56 @@
 ﻿using JKEY_COMMON.Enums;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace JKEY_COMMON.Entities
+namespace JKEY_COMMON.Entities;
+
+public partial class User
 {
-    public class User:BaseEntities
-    {
-        /// <summary>
-        /// ID người dùng
-        /// </summary>
-        public Guid UserId { get; set; }
+    public Guid Id { get; set; }
 
-        /// <summary>
-        /// Tên người dùng
-        /// </summary>
-        public string FullName { get; set; }
+    public string? FullName { get; set; }
 
-        /// <summary>
-        /// Số điện thoại
-        /// </summary>
-        public string Phone { get; set; }
+    public string? Phone { get; set; }
 
-        /// <summary>
-        /// email người dùng
-        /// </summary>
-        public string Email { get; set; }
+    public int Gender { get; set; }
 
-        /// <summary>
-        /// giới tính user
-        /// </summary>
-        public gender Gender { get; set; }
+    public bool Active { get; set; }
 
-        /// <summary>
-        /// Ngày sinh user
-        /// </summary>
-        public DateTime? DOB { get; set; }
+    public DateTime DateOfBirth { get; set; }
 
-        /// <summary>
-        /// Tên đăng nhập user
-        /// </summary>
-        public string UserName { get; set; }
+    public Guid UserCreated { get; set; }
 
-        /// <summary>
-        /// mật khẩu user
-        /// </summary>
-        public string PassWord { get; set; }
+    public Guid UserModified { get; set; }
 
-        /// <summary>
-        /// Trạng thái user
-        /// </summary>
-        public Active Active { get; set; }
-      
-    }
+    public DateTime DateCreated { get; set; }
+
+    public DateTime DateModified { get; set; }
+
+    public string? UserName { get; set; }
+
+    public string? NormalizedUserName { get; set; }
+
+    public string? Email { get; set; }
+
+    public string? NormalizedEmail { get; set; }
+
+    public bool EmailConfirmed { get; set; }
+
+    public string? PasswordHash { get; set; }
+
+    public string? SecurityStamp { get; set; }
+
+    public string? ConcurrencyStamp { get; set; }
+
+    public string? PhoneNumber { get; set; }
+
+    public bool PhoneNumberConfirmed { get; set; }
+
+    public bool TwoFactorEnabled { get; set; }
+
+    public DateTimeOffset? LockoutEnd { get; set; }
+
+    public bool LockoutEnabled { get; set; }
+
+    public int AccessFailedCount { get; set; }
 }

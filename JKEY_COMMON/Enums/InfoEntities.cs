@@ -42,4 +42,40 @@ namespace JKEY_COMMON.Enums
         /// </summary>
         InActive=1,
     }
+
+    /// <summary>
+    /// status 
+    /// </summary>
+    public enum Status { 
+        
+        /// <summary>
+        /// đang hoạt động 
+        /// </summary>
+        Active=0, 
+
+        /// <summary>
+        /// dừng hoạt động
+        /// </summary>
+        InActive=1, 
+
+        /// <summary>
+        /// đã được chấp thuâj
+        /// </summary>
+        Approved=2, 
+
+        /// <summary>
+        /// hủy bỏ/ từ chối
+        /// </summary>
+        Rejected=3, 
+
+        /// <summary>
+        /// đã khóa
+        /// </summary>
+        Blocked=4, 
+
+        /// <summary>
+        ///  đang đợi
+        /// </summary>
+        Pending =5
+    };
 }
