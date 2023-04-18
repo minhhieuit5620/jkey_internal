@@ -24,3 +24,17 @@ F:\jkey_internal\JKEY_COMMON\bin\Debug\net6.0\JKEY_COMMON.pdb
 F:\jkey_internal\JKEY_COMMON\obj\Debug\net6.0\ref\JKEY_COMMON.dll
 F:\jkey_internal\JKEY_COMMON\bin\Debug\net6.0\JKEY_COMMON.runtimeconfig.json
 F:\jkey_internal\JKEY_COMMON\obj\Debug\net6.0\JKEY_COMMON.genruntimeconfig.cache
+C:\Jits\JKey\ProjectJKey\JKEY_COMMON\obj\Debug\net6.0\JKEY_COMMON.csproj.AssemblyReference.cache
+C:\Jits\JKey\ProjectJKey\JKEY_COMMON\obj\Debug\net6.0\JKEY_COMMON.GeneratedMSBuildEditorConfig.editorconfig
+C:\Jits\JKey\ProjectJKey\JKEY_COMMON\obj\Debug\net6.0\JKEY_COMMON.AssemblyInfoInputs.cache
+C:\Jits\JKey\ProjectJKey\JKEY_COMMON\obj\Debug\net6.0\JKEY_COMMON.AssemblyInfo.cs
+C:\Jits\JKey\ProjectJKey\JKEY_COMMON\obj\Debug\net6.0\JKEY_COMMON.csproj.CoreCompileInputs.cache
+C:\Jits\JKey\ProjectJKey\JKEY_COMMON\obj\Debug\net6.0\JKEY_COMMON.dll
+C:\Jits\JKey\ProjectJKey\JKEY_COMMON\obj\Debug\net6.0\refint\JKEY_COMMON.dll
+C:\Jits\JKey\ProjectJKey\JKEY_COMMON\obj\Debug\net6.0\JKEY_COMMON.pdb
+C:\Jits\JKey\ProjectJKey\JKEY_COMMON\bin\Debug\net6.0\JKEY_COMMON.deps.json
+C:\Jits\JKey\ProjectJKey\JKEY_COMMON\bin\Debug\net6.0\JKEY_COMMON.runtimeconfig.json
+C:\Jits\JKey\ProjectJKey\JKEY_COMMON\bin\Debug\net6.0\JKEY_COMMON.dll
+C:\Jits\JKey\ProjectJKey\JKEY_COMMON\bin\Debug\net6.0\JKEY_COMMON.pdb
+C:\Jits\JKey\ProjectJKey\JKEY_COMMON\obj\Debug\net6.0\JKEY_COMMON.genruntimeconfig.cache
+C:\Jits\JKey\ProjectJKey\JKEY_COMMON\obj\Debug\net6.0\ref\JKEY_COMMON.dll
