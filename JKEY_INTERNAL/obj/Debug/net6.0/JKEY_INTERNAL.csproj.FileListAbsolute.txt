@@ -395,3 +395,10 @@ F:\jkey_internal\JKEY_INTERNAL\bin\Debug\net6.0\runtimes\unix\lib\net6.0\System.
 F:\jkey_internal\JKEY_INTERNAL\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 F:\jkey_internal\JKEY_INTERNAL\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 F:\jkey_internal\JKEY_INTERNAL\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+F:\jkey_internal\JKEY_INTERNAL\bin\Debug\net6.0\System.Web.Mvc.dll
+F:\jkey_internal\JKEY_INTERNAL\bin\Debug\net6.0\System.Web.Razor.dll
+F:\jkey_internal\JKEY_INTERNAL\bin\Debug\net6.0\System.Web.Helpers.dll
+F:\jkey_internal\JKEY_INTERNAL\bin\Debug\net6.0\System.Web.WebPages.Deployment.dll
+F:\jkey_internal\JKEY_INTERNAL\bin\Debug\net6.0\System.Web.WebPages.Razor.dll
+F:\jkey_internal\JKEY_INTERNAL\bin\Debug\net6.0\System.Web.WebPages.dll
+F:\jkey_internal\JKEY_INTERNAL\bin\Debug\net6.0\Microsoft.Web.Infrastructure.dll
