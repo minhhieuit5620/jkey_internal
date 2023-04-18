@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RMvsr6akeuSYmPpcCiwy/m4tSY0BzTDMcd4IwvaL2wXaNeT82dwe3Yjgs1fanc7G/ZaSMreu9Cdc4Kt76/tgkg==",
+  "dgSpecHash": "/wg1bIJ/xG4GDT9pfLOuwNMMuAdiHPfhahicKQlU7qVbWG9ezNkDjWxu5m52wEuMDSnxFrqkDJvIGgAwd82OBw==",
   "success": true,
-  "projectFilePath": "F:\\jkey_internal\\JKEY_COMMON\\JKEY_COMMON.csproj",
+  "projectFilePath": "C:\\Users\\MinhHieuDev\\Desktop\\New folder (5)\\jkey_internal\\JKEY_COMMON\\JKEY_COMMON.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MinhHieuDev\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\MinhHieuDev\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

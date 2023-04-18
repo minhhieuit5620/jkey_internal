@@ -34,7 +34,7 @@ namespace JKEY_INTERNAL.Controllers
 
             }
             //nếu tồn tại giá trị validate lỗi
-            if ( validateFailed!=null|| validateFailed.Count>0)
+            if (  validateFailed.Count>0)
             {
                 return new ServiceResponse
                 {
