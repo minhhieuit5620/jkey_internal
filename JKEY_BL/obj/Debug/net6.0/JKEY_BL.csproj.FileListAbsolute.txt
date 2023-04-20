@@ -29,22 +29,8 @@ F:\jkey_internal\JKEY_BL\bin\Debug\net6.0\JKEY_COMMON.pdb
 F:\jkey_internal\JKEY_BL\bin\Debug\net6.0\JKEY_DL.pdb
 F:\jkey_internal\JKEY_BL\obj\Debug\net6.0\JKEY_BL.csproj.CopyComplete
 F:\jkey_internal\JKEY_BL\obj\Debug\net6.0\JKEY_BL.genruntimeconfig.cache
-C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_BL\bin\Debug\net6.0\JKEY_BL.deps.json
-C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_BL\bin\Debug\net6.0\JKEY_BL.runtimeconfig.json
-C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_BL\bin\Debug\net6.0\JKEY_BL.dll
-C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_BL\bin\Debug\net6.0\JKEY_BL.pdb
-C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_BL\bin\Debug\net6.0\JKEY_COMMON.dll
-C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_BL\bin\Debug\net6.0\JKEY_DL.dll
-C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_BL\bin\Debug\net6.0\JKEY_COMMON.pdb
-C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_BL\bin\Debug\net6.0\JKEY_DL.pdb
 C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_BL\obj\Debug\net6.0\JKEY_BL.csproj.AssemblyReference.cache
 C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_BL\obj\Debug\net6.0\JKEY_BL.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_BL\obj\Debug\net6.0\JKEY_BL.AssemblyInfoInputs.cache
 C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_BL\obj\Debug\net6.0\JKEY_BL.AssemblyInfo.cs
 C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_BL\obj\Debug\net6.0\JKEY_BL.csproj.CoreCompileInputs.cache
-C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_BL\obj\Debug\net6.0\JKEY_BL.csproj.CopyComplete
-C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_BL\obj\Debug\net6.0\JKEY_BL.dll
-C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_BL\obj\Debug\net6.0\refint\JKEY_BL.dll
-C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_BL\obj\Debug\net6.0\JKEY_BL.pdb
-C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_BL\obj\Debug\net6.0\JKEY_BL.genruntimeconfig.cache
-C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_BL\obj\Debug\net6.0\ref\JKEY_BL.dll

@@ -29,12 +29,3 @@ C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_COMMON\obj\Debug\
 C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_COMMON\obj\Debug\net6.0\JKEY_COMMON.AssemblyInfoInputs.cache
 C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_COMMON\obj\Debug\net6.0\JKEY_COMMON.AssemblyInfo.cs
 C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_COMMON\obj\Debug\net6.0\JKEY_COMMON.csproj.CoreCompileInputs.cache
-C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_COMMON\obj\Debug\net6.0\JKEY_COMMON.dll
-C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_COMMON\obj\Debug\net6.0\refint\JKEY_COMMON.dll
-C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_COMMON\obj\Debug\net6.0\JKEY_COMMON.pdb
-C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_COMMON\bin\Debug\net6.0\JKEY_COMMON.deps.json
-C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_COMMON\bin\Debug\net6.0\JKEY_COMMON.runtimeconfig.json
-C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_COMMON\bin\Debug\net6.0\JKEY_COMMON.dll
-C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_COMMON\bin\Debug\net6.0\JKEY_COMMON.pdb
-C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_COMMON\obj\Debug\net6.0\JKEY_COMMON.genruntimeconfig.cache
-C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_COMMON\obj\Debug\net6.0\ref\JKEY_COMMON.dll

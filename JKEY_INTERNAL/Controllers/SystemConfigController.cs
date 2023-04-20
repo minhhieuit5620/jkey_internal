@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualBasic;
 using System.Net;
 using JKEY_INTERNAL.Models.Attributes;
+using Microsoft.AspNetCore.Identity;
 
 namespace JKEY_INTERNAL.Controllers
 {
@@ -249,6 +250,7 @@ namespace JKEY_INTERNAL.Controllers
         {
             try
             {
+               
                 if (payload == null)
                 {
                     return new ServiceResponse
