@@ -5,6 +5,7 @@ namespace JKEY_INTERNAL.Models.CustomModel
 {
     public class ServiceResponse
     {
+
      
         public int StatusCode { get; set; }
         /// <summary>

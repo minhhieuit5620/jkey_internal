@@ -1,8 +1,7 @@
-﻿//using JKEY_COMMON.Entities;
-using JKEY_DL.DataContext;
-using JKEY_INTERNAL.Models;
+﻿using JKEY_INTERNAL.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using System.Diagnostics;
 
 namespace JKEY_INTERNAL.Controllers
@@ -21,7 +20,7 @@ namespace JKEY_INTERNAL.Controllers
 
         public IActionResult Index()
         {
-
+           
             List<Menu> Items =  _context.Menus.ToList();
             //int Count = Items.Count();
             //return Ok(new { Items, Count });

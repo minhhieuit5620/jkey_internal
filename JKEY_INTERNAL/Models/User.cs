@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace JKEY_INTERNAL.Models;
 
 public partial class User
 {
     public Guid Id { get; set; }
-
+    [Required(ErrorMessage = "FullName is required")]
     public string? FullName { get; set; }
 
     public string? Phone { get; set; }
