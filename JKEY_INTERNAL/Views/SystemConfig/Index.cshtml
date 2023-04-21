@@ -1,5 +1,133 @@
-﻿
-<h1> This is SystemCofig</h1>
-@foreach (var item in Model){
-    <p>@item.Name</p>
+﻿@{
+    ViewData["Title"] = "System Configuration";
+
+}
+
+<div class="pagetitle">
+    <h1>System Configuration</h1>
+</div>
+
+<section class="section">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Search Configuration</h5>
+            <form class="row g-3">
+                <div class="col-sm-5 col-xs-12">
+                    <label for="inputName" class="form-label">Config Name</label>
+                    <input type="text" class="form-control" id="inputName">
+                </div>
+                <div class="col-sm-5 col-xs-12">
+                    <label for="inputValue" class="form-label">Config Value</label>
+                    <input type="text" class="form-control" id="inputValue">
+                </div><div class="col-sm-5 col-xs-12">
+                    <label for="inputType" class="form-label">Config Type</label>
+                    <input type="text" class="form-control" id="inputType">
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary" id="" onclick="loadData()">Search</button>
+                    <button type="reset" class="btn btn-secondary ">Clear</button>
+                    <button type="submit" class="btn btn-success ">Add</button>
+                    <button type="submit" class="btn btn-danger ">Delete</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Configuration Table</h5>
+            <table class="table table-bordered ">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center"><input class="form-check-input" type="checkbox" id="gridCheck1"></th>
+                        <th scope="col">Config Name</th>
+                        <th scope="col">Config Value</th>
+                        <th scope="col">Config Type</th>
+                        <th scope="col">Config Description</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Edit</th>
+                    </tr>
+                </thead>
+                <tbody class="tbody">
+
+                   
+                    <tr>
+                        <td scope="col" class="text-center"><input class="form-check-input" type="checkbox" id="gridCheck1"></td>
+                        <td>Host</td>
+                        <td>192.168.2.123</td>
+                        <td>String</td>
+                        <td>Host Server</td>
+                        <td>Active</td>
+                        <td><button type="submit" class="btn btn-secondary">Edit</button></td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+            <div class="row align-items-center">
+                <div class="col-sm-1 text-end ">
+                    <label>Page Size:</label>
+                </div>
+                <div class="col-sm-1">
+                    <select class="form-select" id="pageSize" required="">
+                        <option selected="true" value="15">15</option>
+                        <option value="30">30</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                </div>
+                <div class="col-sm-6 ">
+                    <nav>
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item ">
+                                <a class="page-link" href="#" tabindex="-1">Previous</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item active" aria-current="page">
+                                <a class="page-link" href="#">2</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" tabindex="1">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-sm-3 text-end">
+                    <p> Display 1-5 of 5 results.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    <script>
+        //Load Data function
+        function loadData() {
+            $.ajax({
+                url: "/SystemConfig/GetAllSystem",
+                type: "GET",
+                contentType: "application/json",
+                dataType: "json",
+                success: function (result) {
+                    var html = '';
+                    $.each(result.Data, function (key, item) {
+                        html += '<tr>';
+                        html += '<td>' + item.Id + '</td>';
+                        html += '<td>' + item.Name + '</td>';
+                        html += '<td>' + item.Value + '</td>';
+                        html += '<td>' + item.Type + '</td>';
+                        html += '<td>' + item.Active + '</td>';
+                        html += '<td><a href="#" onclick="return getbyID(' + item.EmployeeID + ')">Edit</a> | <a href="#" onclick="Delele(' + item.EmployeeID + ')">Delete</a></td>';
+                        html += '</tr>';
+                    });
+                    $('.tbody').html(html);
+                },
+                error: function (errormessage) {
+                    alert(errormessage.responseText);
+                }
+            });
+        }
+
+    </script>
 }

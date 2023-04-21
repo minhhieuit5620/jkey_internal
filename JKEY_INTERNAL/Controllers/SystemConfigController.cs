@@ -6,11 +6,15 @@ using Microsoft.VisualBasic;
 using System.Net;
 using JKEY_INTERNAL.Models.Attributes;
 using Microsoft.AspNetCore.Identity;
+using System.Net.Http.Headers;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Drawing.Printing;
 
 namespace JKEY_INTERNAL.Controllers
 {
     [ApiController]
-    [Route("api/SystemConfig")]
+    [Route("SystemConfig")]
     public class SystemConfigController : BaseController<SystemConfig>
     {
         private readonly ILogger<SystemConfigController> _logger;
@@ -22,11 +26,51 @@ namespace JKEY_INTERNAL.Controllers
             _logger = logger;
             _context = dbContext;
         }
-
-        public IActionResult Index()
+        string Baseurl = "http://localhost:5147";
+        [Route("SystemConfiguration")]
+        public IActionResult SystemConfiguration()
         {
-            return View();
+
+            List<SystemConfig> listSystemConfig = _context.SystemConfigs.OrderByDescending(x => x.UserCreated).ToList();
+
+            //List<Menu> Items = _context.Menus.ToList();
+            //int Count = Items.Count();
+            //return Ok(new { Items, Count });
+            return View(listSystemConfig);
         }
+        //public async Task<ActionResult> Index()
+        //{
+        //    ServiceResponse EmpInfo = new ServiceResponse();
+        //    SystemConfig EmpInfo1 = new SystemConfig();
+        //    using (var client = new HttpClient())
+        //    {
+        //        //Passing service base url
+        //        client.BaseAddress = new Uri(Baseurl);
+        //        client.DefaultRequestHeaders.Clear();
+        //        //Define request data format
+        //        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        //        //Sending request to find web api REST service resource GetAllEmployees using HttpClient
+        //        HttpResponseMessage Res = await client.GetAsync("api/SystemConfig");
+        //        //Checking the response is successful or not which is sent using HttpClient
+        //        if (Res.IsSuccessStatusCode)
+        //        {
+        //            //Storing the response details recieved from web api
+        //            var EmpResponse = Res.Content.ReadAsStringAsync().Result;
+        //            //Deserializing the response recieved from web api and storing into the Employee list
+        //            //EmpInfo.Data = EmpResponse;//
+        //            EmpInfo= JsonConvert.DeserializeObject<ServiceResponse>(EmpResponse);// EmpResponse;//  op.DeserializeObject<List<SystemConfig>>(EmpResponse);
+
+        //            if (EmpInfo.Success)
+        //            {
+        //               // EmpInfo1 =EmpInfo;
+        //                return View(EmpInfo.Data);
+        //            }
+
+        //        }
+        //        //returning the employee list to view
+        //        return View(EmpInfo);
+        //    }
+   // }
 
         /// <summary>
         /// Lấy toàn bộ system config

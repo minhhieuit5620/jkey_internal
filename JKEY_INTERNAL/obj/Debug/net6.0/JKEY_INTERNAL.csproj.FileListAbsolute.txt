@@ -707,3 +707,4 @@ C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_INTERNAL\obj\Debu
 C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_INTERNAL\obj\Debug\net6.0\JKEY_INTERNAL.pdb
 C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_INTERNAL\obj\Debug\net6.0\JKEY_INTERNAL.genruntimeconfig.cache
 C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_INTERNAL\obj\Debug\net6.0\ref\JKEY_INTERNAL.dll
+C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_INTERNAL\obj\Debug\net6.0\scopedcss\Viewsa\Shared\_Layout.cshtml.rz.scp.css

@@ -1,16 +1,31 @@
-﻿<!DOCTYPE html>
+﻿    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - JKEY_INTERNAL</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <!-- <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/JKEY_INTERNAL.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/JKEY_INTERNAL.styles.css" asp-append-version="true" />-->
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" asp-append-version="true">
+    <link href="~/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" asp-append-version="true">
+    <link href="~/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" asp-append-version="true">
+    <link href="~/assets/vendor/quill/quill.snow.css" rel="stylesheet" asp-append-version="true">
+    <link href="~/assets/vendor/quill/quill.bubble.css" rel="stylesheet" asp-append-version="true">
+    <link href="~/assets/vendor/remixicon/remixicon.css" rel="stylesheet" asp-append-version="true">
+    <link href="~/assets/vendor/simple-datatables/style.css" rel="stylesheet" asp-append-version="true">
+
+    <!-- Template Main CSS File -->
+    <link href="~/assets/css/style.css" rel="stylesheet" asp-append-version="true">
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <!--  <header>
+          <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">JKEY_INTERNAL</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -20,7 +35,7 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
@@ -29,21 +44,147 @@
                 </div>
             </div>
         </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+
+        </header>-->
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top d-flex align-items-center">
+
+        <div class="d-flex align-items-center justify-content-between">
+            <a class="logo d-flex align-items-center" asp-area="" asp-controller="Home" asp-action="Index">
+                <img src="data:image/png;base64,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" alt="logo">
+
+            </a>
+            <i class="bi bi-list toggle-sidebar-btn"></i>
+        </div><!-- End Logo -->
+
+
+        <nav class="header-nav ms-auto">
+            <ul class="d-flex align-items-center">
+
+                <li class="nav-item dropdown pe-3">
+
+                    <a class="nav-link nav-profile d-flex align-items-center pe-0" data-bs-toggle="dropdown">
+                        <img src="~/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+                        <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+                    </a><!-- End Profile Iamge Icon -->
+
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" >
+                                <i class="bi bi-question-circle"></i>
+                                <span>Change Password</span>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" asp-area="" asp-controller="Home" asp-action="Index">
+                                <i class="bi bi-box-arrow-right"></i>
+                                <span>Log Out</span>
+                            </a>
+                        </li>
+
+                    </ul><!-- End Profile Dropdown Items -->
+                </li><!-- End Profile Nav -->
+
+            </ul>
+        </nav><!-- End Icons Navigation -->
+
+    </header><!-- End Header -->
+    <!-- ======= Sidebar ======= -->
+    <aside id="sidebar" class="sidebar">
+
+        <ul class="sidebar-nav" id="sidebar-nav">
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" asp-area="" asp-controller="Home" asp-action="Home">
+                    <i class="bi bi-grid"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" asp-area="" asp-controller="Home" asp-action="DeviceManagement">
+                    <i class="bi bi-phone"></i>
+                    <span>Devive Management</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" asp-area="" asp-controller="Home" asp-action="DeviceManagement">
+                    <i class="bi bi-power"></i>
+                    <span>Manual Unregister Devive</span>
+                </a>
+            </li><!-- End Error 404 Page Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" asp-area="" asp-controller="SystemConfig" asp-action="SystemConfiguration">
+                    <i class="bi bi-wrench"></i>
+                    <span>System Configuration</span>
+                </a>
+            </li><!-- End Error 404 Page Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#admin-nav" data-bs-toggle="collapse">
+                    <i class="bi bi-menu-button-wide"></i><span>Admin Management</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="admin-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a asp-area="" asp-controller="Home" asp-action="RoleManagement">
+                            <i class="bi bi-circle"></i><span>Role Management</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-controller="Home" asp-action="UserManagement">
+                            <i class="bi bi-circle"></i><span>User Management</span>
+                        </a>
+                    </li>
+                </ul>
+            </li><!-- End Icons Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" asp-area="" asp-controller="Home" asp-action="ReportsManagement">
+                    <i class="bi bi-file-earmark-text"></i>
+                    <span>Reports</span>
+                </a>
+            </li><!-- End Blank Page Nav -->
+
+        </ul>
+
+    </aside><!-- End Sidebar-->
+        <main id="main" role="main" class="main">
             @RenderBody()
         </main>
+
+    <!-- ======= Footer ======= -->
+    <div>
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                &copy; Copyright <strong><span>JITS</span></strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+                Designed by Someone
+            </div>
+        </footer><!-- End Footer -->
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - JKEY_INTERNAL - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="~/assets/vendor/apexcharts/apexcharts.min.js" asp-append-version="true"></script>
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"  asp-append-version="true"></script>
+    <script src="~/assets/vendor/chart.js/chart.umd.js" asp-append-version="true"></script>
+    <script src="~/assets/vendor/echarts/echarts.min.js" asp-append-version="true"></script>
+    <script src="~/assets/vendor/quill/quill.min.js" asp-append-version="true"></script>
+    <script src="~/assets/vendor/simple-datatables/simple-datatables.js" asp-append-version="true"></script>
+    <script src="~/assets/vendor/tinymce/tinymce.min.js" asp-append-version="true"></script>
+    <script src="~/assets/vendor/php-email-form/validate.js" asp-append-version="true"></script>
+    <!--<script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script> -->
+    <!-- Template Main JS File -->
+    <script src="~/assets/js/main.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

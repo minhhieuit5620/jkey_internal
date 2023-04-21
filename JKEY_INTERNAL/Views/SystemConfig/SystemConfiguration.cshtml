@@ -1,0 +1,252 @@
+﻿@{
+    ViewData["Title"] = "System Configuration";
+
+}
+@model IEnumerable<JKEY_INTERNAL.Models.SystemConfig>
+<div class="pagetitle">
+    <h1>System Configuration</h1>
+</div>
+
+<section class="section">
+    
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Search Configuration</h5>
+            <div class="row g-3">
+                <div class="col-sm-5 col-xs-12">
+                    <label for="inputName" class="form-label">Config Name</label>
+                    <input type="text" class="form-control" id="inputName">
+                </div>
+                <div class="col-sm-5 col-xs-12">
+                    <label for="inputValue" class="form-label">Config Value</label>
+                    <input type="text" class="form-control" id="inputValue">
+                </div><div class="col-sm-5 col-xs-12">
+                    <label for="inputType" class="form-label">Config Type</label>
+                    <input type="text" class="form-control" id="inputType">
+                </div>
+                <div>
+                    <button type="button" class="btn btn-primary" id="Search">Search</button>
+                    <button type="reset" class="btn btn-secondary" id="Clear">Clear</button>
+                    <button type="submit" class="btn btn-success ">Add</button>
+                    <button type="submit" class="btn btn-danger " id="Delete">Delete</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="loading text-center">
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Configuration Table</h5>
+            <table class="table table-bordered ">
+                <thead>
+                    <tr>
+                      @*<th scope="col" class="text-center"><input class="form-check-input" type="checkbox" id="gridCheck1"></th>*@
+                        <th scope="col">Config Name</th>
+                        <th scope="col">Config Value</th>
+                        <th scope="col">Config Type</th>
+                        <th scope="col">Config Description</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody class="tbody">
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td> @item.Name</td>
+                            <td> @item.Value</td>
+                            <td>@item.Type</td>
+                            <td>@item.Description</td>
+                            <td> @item.Active</td>
+                            <td>
+                                <button type="submit" class=" btn-sm btn-primary"  id="Edit">
+                                    <i class="bi bi-pencil-square"></i> 
+                                </button>
+                                <button type="submit" class="btn-sm btn-danger" id="Delete">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+
+                            </td>
+                        </tr>
+                    }
+                    
+                   @* <tr>
+                        <td scope="col" class="text-center"><input class="form-check-input" type="checkbox" id="gridCheck1"></td>
+                        <td>Port</td>
+                        <td>1234</td>
+                        <td>String</td>
+                        <td>Port Server</td>
+                        <td>Active</td>
+                        <td><button type="submit" class="btn btn-secondary">Edit</button></td>
+                    </tr>
+                    <tr>
+                        <td scope="col" class="text-center"><input class="form-check-input" type="checkbox" id="gridCheck1"></td>
+                        <td>Default_account</td>
+                        <td>admin</td>
+                        <td>String</td>
+                        <td>Default Account</td>
+                        <td>Active</td>
+                        <td><button type="submit" class="btn btn-secondary">Edit</button></td>
+                    </tr>
+                    <tr>
+                        <td scope="col" class="text-center"><input class="form-check-input" type="checkbox" id="gridCheck1"></td>
+                        <td>Default_password</td>
+                        <td>123456</td>
+                        <td>String</td>
+                        <td>Default Password</td>
+                        <td>Active</td>
+                        <td><button type="submit" class="btn btn-secondary">Edit</button></td>
+                    </tr>
+                    <tr>
+                        <td scope="col" class="text-center"><input class="form-check-input" type="checkbox" id="gridCheck1"></td>
+                        <td>Default_name</td>
+                        <td>Dynamic</td>
+                        <td>String</td>
+                        <td>Default Name</td>
+                        <td>Active</td>
+                        <td><button type="submit" class="btn btn-secondary">Edit</button></td>
+                    </tr>*@
+                </tbody>
+            </table>
+            <div class="row align-items-center">
+                <div class="col-sm-1 text-end ">
+                    <label>Page Size:</label>
+                </div>
+                <div class="col-sm-1">
+                    <select class="form-select" id="pageSize" required="">
+                        <option selected="true" value="15">15</option>
+                        <option value="30">30</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                </div>
+                <div class="col-sm-6 ">
+                    <nav>
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item ">
+                                <a class="page-link" href="#" tabindex="-1">Previous</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item active" aria-current="page">
+                                <a class="page-link" href="#">2</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" tabindex="1">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-sm-3 text-end">
+                    <p> Display 1-5 of 5 results.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@*@section Scripts{
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+    <script>
+             $(document).ready(function () {
+           
+        //Load Data function
+         $("#Search").click(function () {
+                var h = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Loading...'
+                        $('.loading').html(h);
+                $.ajax({
+                    type: "GET",
+                    url: "/api/SystemConfig/filter" ,
+                    dataType: "json",
+                    success: function (result) {
+                        console.log("1");
+                        console.log(result);
+                        var html = '<div class="card-body">';
+                        html += '<h5 class="card-title">Configuration Table</h5>';
+                        html += '<table class="table table-bordered ">';
+                        html += '<thead>';
+                        html += '<tr>';
+                        //html += '<th scope="col" class="text-center">#</th>';
+                        html += '<th scope="col">Config Name</th>';
+                        html += '<th scope="col">Config Value</th>';
+                        html += '<th scope="col">Config Type</th>';
+                        html += '<th scope="col">Config Description</th>';
+                        html += '<th scope="col">Status</th>';
+                        html += '<th scope="col">Edit</th>';
+                        html += '<th scope="col">Delete</th>';
+                        html += '</tr>';
+                        html += '</thead>';
+                        html += '<tbody class="tbody">';
+                        $.each(result.data.data, function (key, item) {
+                            html += '<tr>';
+                           // html += '<td scope="col" class="text-center"><input class="form-check-input" name="type"  type="checkbox" value=' + item.id + ' id="checkSingle"></td>';
+                            html += '<td>' + item.name + '</td>';
+                            html += '<td>' + item.value + '</td>';
+                            html += '<td>' + item.type + '</td>';
+                            html += '<td>' + item.description + '</td>';
+                            html += '<td>' + item.active + '</td>';
+                            html += '<td><button type="submit" class="btn btn-secondary">Edit</button></td>';
+                            html += '<td><button type="button" class="btn btn-secondary" onclick="deleteConfig(' + item.id + ')">Delete</button></td>';
+                            html += '</tr>';
+                        });
+                        html += '</tbody>';
+                        html += '</table>';
+                        html += '<div class="row align-items-center">';
+                        html += '<div class="col-sm-1 text-end ">';
+                        html += '<label>Page Size:</label>';
+                        html += '</div>';
+                        html += '<div class="col-sm-1">';
+                        html += '<select class="form-select" id="pageSize" required="">';
+                        html += '<option selected="true" value="15">15</option>';
+                        html += '<option value="30">30</option>';
+                        html += '<option value="50">50</option>';
+                        html += '<option value="100">100</option>';
+                        html += '</select>';
+                        html += '</div>';
+                        html += '<div class="col-sm-6 ">';
+                        html += ' <nav>';
+                        html += '<ul class="pagination justify-content-center">';
+                        html += ' <li class="page-item ">';
+                        html += '<a class="page-link" href="#" tabindex="-1">Previous</a>';
+                        html += '</li>';
+                        html += ' <li class="page-item ">';
+                        html += '<a class="page-link" href="#" tabindex="1">Next</a>';
+                        html += '</li>';
+                        html += '</ul>';
+                        html += '</nav>';
+                        html += '</div>';
+                        html += '<div class="col-sm-3 text-end">';
+                        html += ' <p> Display 1-5 of ' + result.data.total+' results.</p>';
+                        html += '</div>';
+                        html += '</div>';
+                        html += '</div>';
+                        h='';
+                        $('.cardtable').html(html);
+                        $('.loading').html(h);
+                    }
+                });
+         });    
+           
+        });
+        function deleteConfig (idData) {
+            console.log(typeof("a"));
+            //$.ajax({
+            //    type: "POST",
+            //    url: "/api/SystemConfig/Remove/{id}",
+            //    data: { id: idD },
+            //    dataType: "text",
+            //    success: function () {
+            //        console.log("Success");
+            //        window.location.reload();
+            //    }, error: function () {
+            //        console.log("error");
+            //    }
+            //});
+        };
+    </script>
+}*@

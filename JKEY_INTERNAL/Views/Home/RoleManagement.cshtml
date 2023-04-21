@@ -1,0 +1,132 @@
+﻿@{
+    ViewData["Title"] = "Role Management";
+}
+<div class="pagetitle">
+    <h1>Role Management</h1>
+</div><!-- End Page Title -->
+
+<section class="section">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Search Role</h5>
+            <form class="row g-3">
+                <div class="col-sm-5 col-xs-12">
+                    <label for="inputRoleName" class="form-label">Role Name</label>
+                    <input type="text" class="form-control" id="inputRoleName">
+                </div>
+                <div class="col-sm-5 col-xs-12">
+                    <label for="selectStatus" class="form-label">Status</label>
+                    <select class="form-select" id="selectStatus" required="">
+                        <option selected="true" value="Active">Active</option>
+                        <option value="InActive">Inactive</option>
+                    </select>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                    <button type="reset" class="btn btn-secondary ">Clear</button>
+                    <button type="submit" class="btn btn-success ">Add</button>
+                    <button type="submit" class="btn btn-danger ">Delete</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Role Table</h5>
+            <table class="table table-bordered ">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center"><input class="form-check-input" type="checkbox" id="gridCheck1"></th>
+                        <th scope="col">Role Name</th>
+                        <th scope="col">Role Description</th>
+                        <th scope="col">Author</th>
+                        <th scope="col">Created Date</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="col" class="text-center"><input class="form-check-input" type="checkbox" id="gridCheck1"></td>
+                        <td>Admin</td>
+                        <td>Admin System</td>
+                        <td>admin</td>
+                        <td>2016-05-25</td>
+                        <td>Active</td>
+                        <td><button type="submit" class="btn btn-secondary">Edit</button></td>
+                    </tr>
+                    <tr>
+                        <td scope="col" class="text-center"><input class="form-check-input" type="checkbox" id="gridCheck1"></td>
+                        <td>User</td>
+                        <td>User System</td>
+                        <td>admin</td>
+                        <td>2014-12-05</td>
+                        <td>Active</td>
+                        <td><button type="submit" class="btn btn-secondary">Edit</button></td>
+                    </tr>
+                    <tr>
+                        <td scope="col" class="text-center"><input class="form-check-input" type="checkbox" id="gridCheck1"></td>
+                        <td>Product Owner</td>
+                        <td>Product Owner System</td>
+                        <td>admin</td>
+                        <td>2011-08-12</td>
+                        <td>Active</td>
+                        <td><button type="submit" class="btn btn-secondary">Edit</button></td>
+                    </tr>
+                    <tr>
+                        <td scope="col" class="text-center"><input class="form-check-input" type="checkbox" id="gridCheck1"></td>
+                        <td>Data Analysis</td>
+                        <td>Data Analysis System</td>
+                        <td>admin</td>
+                        <td>2012-06-11</td>
+                        <td>Active</td>
+                        <td><button type="submit" class="btn btn-secondary">Edit</button></td>
+                    </tr>
+                    <tr>
+                        <td scope="col" class="text-center"><input class="form-check-input" type="checkbox" id="gridCheck1"></td>
+                        <td>Business Analysis</td>
+                        <td>Business Analysis System</td>
+                        <td>admin</td>
+                        <td>2011-04-19</td>
+                        <td>Active</td>
+                        <td><button type="submit" class="btn btn-secondary">Edit</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="row align-items-center">
+                <div class="col-sm-1 text-end ">
+                    <label>Page Size:</label>
+                </div>
+                <div class="col-sm-1">
+                    <select class="form-select" id="pageSize" required="">
+                        <option selected="true" value="15">15</option>
+                        <option value="30">30</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                </div>
+                <div class="col-sm-6 ">
+                    <nav>
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item ">
+                                <a class="page-link" href="#" tabindex="-1">Previous</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item active" aria-current="page">
+                                <a class="page-link" href="#">2</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" tabindex="1">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-sm-3 text-end">
+                    <p> Display 1-5 of 5 results.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

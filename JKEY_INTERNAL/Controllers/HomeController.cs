@@ -27,6 +27,47 @@ namespace JKEY_INTERNAL.Controllers
             //return Ok(new { Items, Count });
             return View(Items);
         }
+        public IActionResult Home()
+        {
+            return View();
+        }
+
+        public IActionResult DeviceManagement()
+        {
+            return View();
+        }
+        public IActionResult DeviceInformation()
+        {
+            return View();
+        }
+        public IActionResult SystemConfiguration()
+        {
+            return View();
+        }
+        public IActionResult ConfigurationInformation()
+        {
+            return View();
+        }
+        public IActionResult RoleManagement()
+        {
+            return View();
+        }
+        public IActionResult RoleInformation()
+        {
+            return View();
+        }
+        public IActionResult UserManagement()
+        {
+            return View();
+        }
+        public IActionResult UserInformation()
+        {
+            return View();
+        }
+        public IActionResult ReportsManagement()
+        {
+            return View();
+        }
 
         public IActionResult Privacy()
         {

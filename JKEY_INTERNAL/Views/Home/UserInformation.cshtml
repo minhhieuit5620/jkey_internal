@@ -1,0 +1,121 @@
+﻿@{
+    ViewData["Title"] = "User information";
+}
+<div class="pagetitle">
+    <h1>User information</h1>
+</div><!-- End Page Title -->
+
+<section class="section">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">User Account Login</h5>
+
+            <!-- Floating Labels Form -->
+            <form class="row g-3">
+                <div class="col-md-10">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingUsername" placeholder="Username">
+                        <label for="floatingUsername">Username</label>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                        <label for="floatingPassword1">Password</label>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="floatingRePassword" placeholder="Re-Password">
+                        <label for="floatingPassword2">Re-Password</label>
+                    </div>
+                </div>
+            </form><!-- End floating Labels Form -->
+
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">User information</h5>
+
+            <!-- Floating Labels Form -->
+            <form class="row g-3">
+                <div class="col-md-10">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingName" placeholder="Full Name">
+                        <label for="floatingName">Full Name</label>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-floating">
+                        <input type="tel" class="form-control" id="floatingPhone" placeholder="Phone Number">
+                        <label for="floatingPhone">Phone Number</label>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-floating">
+                        <input type="email" class="form-control" id="floatingEmail" placeholder="Email">
+                        <label for="floatingEmail">Email</label>
+                    </div>
+                </div>
+                <div class="col-10">
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Address" id="floatingTextarea" style="height: 100px;"></textarea>
+                        <label for="floatingTextarea">Address</label>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="col-md-12">
+                        <div class="form-floating">
+                            <input type="date" class="form-control" id="floatingDOB" placeholder="Date of Birth">
+                            <label for="floatingDOB">Date of Birth</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="floatingGender" aria-label="Gender">
+                            <option selected value="2">Other</option>
+                            <option value="0">Male</option>
+                            <option value="1">Female</option>
+                        </select>
+                        <label for="floatingGender">Gender</label>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="floatingStatus" aria-label="Status">
+                            <option selected value="0">Active</option>
+                            <option value="1">InActive</option>
+                        </select>
+                        <label for="floatingStatus">Status</label>
+                    </div>
+                </div>
+            </form><!-- End floating Labels Form -->
+
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Role for User</h5>
+
+            <!-- Floating Labels Form -->
+            <form class="row g-3">
+                <div class="col-md-3">
+                    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                    Admin
+                </div>
+                <div class="col-md-3">
+                    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                    User
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="reset" class="btn btn-secondary">Back</button>
+                </div>
+            </form><!-- End floating Labels Form -->
+
+        </div>
+    </div>
+
+</section>

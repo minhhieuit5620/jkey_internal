@@ -59,7 +59,8 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-Cache.InitHazelcast("Hazelcast", "localhost:5701");
+Cache.Init("Hazelcast", "localhost:5701", "dev", "", 0);
+//Cache.InitHazelcast("Hazelcast", "localhost:5701");
 
 var app = builder.Build();
 
@@ -76,6 +77,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Login}/{action=Index}/{id?}");
 
 app.Run();

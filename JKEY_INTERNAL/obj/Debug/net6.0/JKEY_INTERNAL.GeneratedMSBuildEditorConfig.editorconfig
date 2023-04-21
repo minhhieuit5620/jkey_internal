@@ -15,16 +15,76 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\MinhHieuDev\Desktop\New folder (5)\jkey_internal\JKEY_INTERNAL
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/MinhHieuDev/Desktop/New folder (5)/jkey_internal/JKEY_INTERNAL/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[C:/Users/MinhHieuDev/Desktop/New folder (5)/jkey_internal/JKEY_INTERNAL/Viewsa/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NhXEhvbWVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MinhHieuDev/Desktop/New folder (5)/jkey_internal/JKEY_INTERNAL/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+[C:/Users/MinhHieuDev/Desktop/New folder (5)/jkey_internal/JKEY_INTERNAL/Viewsa/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NhXEhvbWVcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MinhHieuDev/Desktop/New folder (5)/jkey_internal/JKEY_INTERNAL/Views/Page/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnZVxJbmRleC5jc2h0bWw=
+[C:/Users/MinhHieuDev/Desktop/New folder (5)/jkey_internal/JKEY_INTERNAL/Viewsa/Page/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NhXFBhZ2VcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MinhHieuDev/Desktop/New folder (5)/jkey_internal/JKEY_INTERNAL/Viewsa/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NhXFNoYXJlZFxFcnJvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MinhHieuDev/Desktop/New folder (5)/jkey_internal/JKEY_INTERNAL/Viewsa/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NhXFNoYXJlZFxfVmFsaWRhdGlvblNjcmlwdHNQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MinhHieuDev/Desktop/New folder (5)/jkey_internal/JKEY_INTERNAL/Viewsa/SystemConfig/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NhXFN5c3RlbUNvbmZpZ1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MinhHieuDev/Desktop/New folder (5)/jkey_internal/JKEY_INTERNAL/Viewsa/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NhXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MinhHieuDev/Desktop/New folder (5)/jkey_internal/JKEY_INTERNAL/Viewsa/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NhXF9WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MinhHieuDev/Desktop/New folder (5)/jkey_internal/JKEY_INTERNAL/Views/Home/ConfigurationInformation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb25maWd1cmF0aW9uSW5mb3JtYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MinhHieuDev/Desktop/New folder (5)/jkey_internal/JKEY_INTERNAL/Views/Home/DeviceInformation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEZXZpY2VJbmZvcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MinhHieuDev/Desktop/New folder (5)/jkey_internal/JKEY_INTERNAL/Views/Home/DeviceManagement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEZXZpY2VNYW5hZ2VtZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MinhHieuDev/Desktop/New folder (5)/jkey_internal/JKEY_INTERNAL/Views/Home/Home.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIb21lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MinhHieuDev/Desktop/New folder (5)/jkey_internal/JKEY_INTERNAL/Views/Home/ReportsManagement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZXBvcnRzTWFuYWdlbWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MinhHieuDev/Desktop/New folder (5)/jkey_internal/JKEY_INTERNAL/Views/Home/RoleInformation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSb2xlSW5mb3JtYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MinhHieuDev/Desktop/New folder (5)/jkey_internal/JKEY_INTERNAL/Views/Home/RoleManagement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSb2xlTWFuYWdlbWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MinhHieuDev/Desktop/New folder (5)/jkey_internal/JKEY_INTERNAL/Views/Home/UserInformation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxVc2VySW5mb3JtYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MinhHieuDev/Desktop/New folder (5)/jkey_internal/JKEY_INTERNAL/Views/Home/UserManagement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxVc2VyTWFuYWdlbWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MinhHieuDev/Desktop/New folder (5)/jkey_internal/JKEY_INTERNAL/Views/Login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/MinhHieuDev/Desktop/New folder (5)/jkey_internal/JKEY_INTERNAL/Views/Shared/Error.cshtml]
@@ -39,6 +99,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3lzdGVtQ29uZmlnXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/MinhHieuDev/Desktop/New folder (5)/jkey_internal/JKEY_INTERNAL/Views/SystemConfig/SystemConfiguration.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3lzdGVtQ29uZmlnXFN5c3RlbUNvbmZpZ3VyYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/MinhHieuDev/Desktop/New folder (5)/jkey_internal/JKEY_INTERNAL/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -46,6 +110,10 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/MinhHieuDev/Desktop/New folder (5)/jkey_internal/JKEY_INTERNAL/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MinhHieuDev/Desktop/New folder (5)/jkey_internal/JKEY_INTERNAL/Viewsa/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NhXFNoYXJlZFxfTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-yrfohaqn3m
 
 [C:/Users/MinhHieuDev/Desktop/New folder (5)/jkey_internal/JKEY_INTERNAL/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s

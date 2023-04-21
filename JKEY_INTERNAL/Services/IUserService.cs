@@ -1,4 +1,5 @@
-﻿using JKEY_INTERNAL.Models;
+﻿using Azure.Core;
+using JKEY_INTERNAL.Models;
 using JKEY_INTERNAL.Models.CustomModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -250,10 +251,10 @@ namespace JKEY_INTERNAL.Services
 
                         string keycache = "key1";
 
-                        var check=Cache.GetString(keycache, "cache_Jkey");
-                        Cache.DelString(keycache, "cache_Jkey");
+                        var check=Cache.GetString(keycache, _configuration["ModuleCache"]);
+                        Cache.DelString(keycache, _configuration["ModuleCache"]);
 
-                        Cache.SetString(keycache, JsonConvert.SerializeObject(refreshTokenModel), "cache_Jkey");
+                        Cache.SetString(keycache, JsonConvert.SerializeObject(refreshTokenModel), _configuration["ModuleCache"]);
 
                        
                         return new ServiceResponse
@@ -323,12 +324,24 @@ namespace JKEY_INTERNAL.Services
 
                 }
                 var token = await GenerateToken(user.Id.ToString());
-
-                return new ServiceResponse
+                if (token.Success)
                 {
-                    Success = true,
-                    Data = token
-                };
+                    return new ServiceResponse
+                    {
+                        Success = true,
+                        Data = token
+                    };
+                }
+                else
+                {
+                    return new ServiceResponse
+                    {
+                        Success = false,
+                        Data = "Login Failed"
+                    };
+                }
+
+                
             }
             catch (Exception ex)
             {
@@ -357,15 +370,12 @@ namespace JKEY_INTERNAL.Services
                 RefreshTokenModel refreshTokenModel = await GenerateRefreshToken(userId);
 
                 TokenResponse jresponse = new TokenResponse
-                {
+                {       Success=true,
                         AccessToken = refreshTokenModel.Token,
                         TokenType= "Bearer",
                         RefreshToken = refreshTokenModel.RefreshToken,
                         ExpiresIn= (int)refreshTokenModel.Token_ExpiryDateTimeSpan.TotalSeconds,
                         RefreshTokenExpiresIn =(int)refreshTokenModel.RefreshToken_ExpiryDateTimeSpan.TotalSeconds,
-                       
-
-
                 };
                
                 return jresponse;
@@ -375,8 +385,8 @@ namespace JKEY_INTERNAL.Services
                 //LogProcess.LogError(ex, Assembly.GetExecutingAssembly().ToString(), MethodBase.GetCurrentMethod().Name);
                 return new TokenResponse
                 {
-                    AccessToken ="",
-
+                    Success = false,
+                 
                 };
             }
         }
@@ -431,10 +441,143 @@ namespace JKEY_INTERNAL.Services
                     LastUsedDate = DateTime.Now
                 };
 
+                var keyCache = claim;
+                Cache.SetString(keyCache, JsonConvert.SerializeObject(refreshTokenModel), _configuration["ModuleCache"]);
+                var valueCache = Cache.GetString(keyCache, _configuration["ModuleCache"]);
+                //Cache.DelString(keyCache, "cache_Jkey");
+
+                if (!string.IsNullOrEmpty(valueCache))
+                {
+                    var vl = valueCache.Split(',');
+
+                    for (int i = 0; i < vl.Length; i++)
+                    {
+                        if (vl[i].Contains("Token_ExpiryDateTimeSpan"))
+                        {
+                            var e = "Token_ExpiryDateTimeSpan".Length;
+                            var result = vl[i];
+                            var a = result.Split("\"");
+                            var exp = int.Parse(a[4]);
+                            //var vl1 = result.Substring(24, a);
+                           // var vl2 = vl1[2].StartWith(":");
+                        }
+                    }
+                }
+
                 return  refreshTokenModel;
             }
         }
 
+        //public bool ValidateTokenWhenHaveRequestFromClient(TransactionInfo trans, out List<string> listReason)
+        //{
+        //    return ValidateTokenWhenHaveRequestFromClient(trans.TokenInfo.UserId + "|" + trans.TokenInfo.ServiceId + "|" + trans.TokenInfo.FirstLogin, trans.IpAddress, trans.TokenInfo.AccessToken, trans.ApiTransId, out listReason);
+        //}
+
+        public bool ValidateTokenWhenHaveRequestFromClient(string claim, string token, out List<string> listReason)
+        {
+            listReason = new List<string>();          
+            string userId = string.Empty;
+            if (claim.Length > 0)
+            {
+                userId = claim;
+            }          
+            
+
+            if (token.StartsWith("Bearer ", StringComparison.OrdinalIgnoreCase))
+            {
+                token = token.Substring("Bearer ".Length).Trim();
+            }
+
+            bool TokenValid = false;
+            string key = userId;
+           
+
+            string valueCache = Cache.GetString(key, _configuration["ModuleCache"]);
+
+            if (!string.IsNullOrEmpty(valueCache))
+            {
+                listReason.Add(valueCache);
+                TimeSpan expireTimeSpanToValidateToken = GetTokenExpire(userId) - DateTime.Now;
+
+                RefreshTokenModel refreshTokenModel = JsonConvert.DeserializeObject<RefreshTokenModel>(valueCache);
+                if (refreshTokenModel.Token_ExpiryDate > DateTime.Now &&
+                    refreshTokenModel.Token.Equals(token) 
+                    )
+                {
+                    refreshTokenModel.LastUsedDate = DateTime.Now;
+                    refreshTokenModel.Token_ExpiryDate = DateTime.Now.Add(expireTimeSpanToValidateToken);
+                    refreshTokenModel.Token_ExpiryDateTimeSpan = expireTimeSpanToValidateToken;
+                    Cache.SetString(key, JsonConvert.SerializeObject(refreshTokenModel), _configuration["ModuleCache"]);
+                    TokenValid = true;
+                }
+                else
+                {
+                    listReason.Add($"Token can be expired or Token not match or IP not match!");
+                }
+            }
+            else
+            {
+                listReason.Add($"Can not found {key} in cache!");
+               // LogProcess.LogInformation(Information: "{LogName}, {Message}", propertyValues: new object[] { "ValidateTokenWhenHaveRequestFromClient", $"{claim} and {ipAddress} not exist in system or invalid!" }, ApiGwTranId: RequestId);
+            }
+            return TokenValid;
+        }
+
+
+
+
+        private DateTime GetTokenExpire(string userId)
+        {
+            string defaultKeyName = "DEFAULT_TOKENEXPIREDATE";
+            string keyName = "_TOKENEXPIREDATE";
+
+           string  dataFromCache = Cache.GetString(userId, "Cache_Jkey");
+
+            if (string.IsNullOrEmpty(dataFromCache))
+            {
+                var vl=dataFromCache.Split(',');
+            }
+
+            //if (string.IsNullOrEmpty(dataFromCache))
+            //{
+            //    var strExpireTime= int.Parse(strExpireTime.Substring(0, strExpireTime.Length - 1));
+            //}
+
+            //string strExpireTime = listSysVariableTable.Where(item => item.Name.Equals(userId + keyName)).Select(s => s.Value).FirstOrDefault();
+
+            //if (string.IsNullOrEmpty(strExpireTime))
+            //{
+            //    strExpireTime = listSysVariableTable.Where(item => item.Name.Equals(defaultKeyName)).Select(s => s.Value).FirstOrDefault();
+            //}
+
+            //int param01 = int.Parse(strExpireTime.Substring(0, strExpireTime.Length - 1));
+            //string param02 = strExpireTime.Substring(strExpireTime.Length - 1, 1);
+
+            //DateTime finalDateTime = DateTime.Now;
+            //switch (param02)
+            //{
+            //    case "s":
+            //        finalDateTime = DateTime.Now.AddSeconds(param01);
+            //        break;
+            //    case "m":
+            //        finalDateTime = DateTime.Now.AddMinutes(param01);
+            //        break;
+            //    case "h":
+            //        finalDateTime = DateTime.Now.AddHours(param01);
+            //        break;
+            //    case "d":
+            //        finalDateTime = DateTime.Now.AddDays(param01);
+            //        break;
+            //    case "M":
+            //        finalDateTime = DateTime.Now.AddMonths(param01);
+            //        break;
+            //    case "y":
+            //        finalDateTime = DateTime.Now.AddYears(param01);
+            //        break;
+            //}
+
+            return DateTime.Now;
+        }
 
 
 
