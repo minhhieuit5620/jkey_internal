@@ -14,7 +14,7 @@ using System.Drawing.Printing;
 namespace JKEY_INTERNAL.Controllers
 {
     [ApiController]
-    [Route("SystemConfig")]
+    [Route("api/SystemConfig")]
     public class SystemConfigController : BaseController<SystemConfig>
     {
         private readonly ILogger<SystemConfigController> _logger;
@@ -26,7 +26,8 @@ namespace JKEY_INTERNAL.Controllers
             _logger = logger;
             _context = dbContext;
         }
-        string Baseurl = "http://localhost:5147";
+        
+            string Baseurl = "http://localhost:5147";
         [Route("SystemConfiguration")]
         public IActionResult SystemConfiguration()
         {
@@ -38,6 +39,19 @@ namespace JKEY_INTERNAL.Controllers
             //return Ok(new { Items, Count });
             return View(listSystemConfig);
         }
+
+        [Route("SystemConfiguration/ADD")]
+        public IActionResult ConfigurationInformation()
+        {
+            return View();
+        }
+
+        [Route("SystemConfiguration/EDIT/{ID}")]
+        public IActionResult ConfigurationInformationEdit()
+        {
+            return View();
+        }
+        
         //public async Task<ActionResult> Index()
         //{
         //    ServiceResponse EmpInfo = new ServiceResponse();
@@ -70,7 +84,7 @@ namespace JKEY_INTERNAL.Controllers
         //        //returning the employee list to view
         //        return View(EmpInfo);
         //    }
-   // }
+        // }
 
         /// <summary>
         /// Lấy toàn bộ system config
@@ -252,11 +266,10 @@ namespace JKEY_INTERNAL.Controllers
                     systemConfig.Description = payload.Description;
                     systemConfig.Name = payload.Name;
                     systemConfig.Value = payload.Value;
+                    systemConfig.Active = (bool)payload.Active;
                     systemConfig.Type = payload.Type;
-                    systemConfig.UserCreated = payload.UserCreated;
-                    systemConfig.UserModified = payload.UserModified;
-                    systemConfig.DateCreated = DateTime.Now;
-                    systemConfig.DateModified = DateTime.Now;
+                    systemConfig.UserCreated = Guid.NewGuid();                    
+                    systemConfig.DateCreated = DateTime.Now;                    
 
                     _context.SystemConfigs.Add(systemConfig);
                     _context.SaveChanges();
