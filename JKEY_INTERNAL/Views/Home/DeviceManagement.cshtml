@@ -1,0 +1,156 @@
+﻿
+@{
+    ViewData["Title"] = "Device Management";
+}
+    <div class="pagetitle">
+        <h1>Device Management</h1>
+    </div><!-- End Page Title -->
+    <section class="section">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Search</h5>
+
+                <!-- Vertical Form -->
+                <form class="row g-3">
+                    <div class="col-sm-5 col-xs-12">
+                        <label for="inputUserID" class="form-label">User ID</label>
+                    <input type="text" class="form-control" id="inputUserID">
+                    </div>
+                    <div class="col-sm-5 col-xs-12">
+                        <label for="inputDeviceID" class="form-label">Device ID</label>
+                    <input type="text" class="form-control" id="inputDeviceID">
+                    </div>
+                    <div class="col-sm-5 col-xs-12">
+                        <label for="selectAuthenType" class="form-label">Authen Type</label>
+                    <select class="form-select" id="selectAuthenType" required="">
+                            <option selected="true" value="All">All</option>
+                            <option value="Active">Smart OTP</option>
+                            <option value="InActive">Advance OTP</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-5 col-xs-12">
+                        <label for="selectStatus" class="form-label">Status</label>
+                    <select class="form-select" id="selectStatus" required="">
+                            <option selected="true" value="All">All</option>
+                            <option value="Active">Active</option>
+                            <option value="InActive">Inactive</option>
+                        </select>
+                    </div>
+
+                    <div class="col-sm-5 col-xs-12">
+                        <label for="inputFromDate" class="form-label">From Date</label>
+                    <input type="datetime-local" class="form-control" id="inputFromDate">
+                    </div>
+                    <div class="col-sm-5 col-xs-12">
+                    <label for="inputToDate" class="form-label">To Date</label>
+                    <input type="datetime-local" class="form-control" id="inputToDate">
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary">Search</button>
+                        <button type="reset" class="btn btn-secondary ">Clear</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Table</h5>
+                <!-- Bordered Table -->
+                <table class="table table-bordered ">
+                    <thead>
+                        <tr>
+                            <th scope="col">User ID</th>
+                            <th scope="col">Device ID</th>
+                            <th scope="col">Authen Type</th>
+                            <th scope="col">Active Code</th>
+                            <th scope="col">Issue Date</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>NMMKJ-6RK4F-KMJVX-8D9MJ–6MWKP</td>
+                            <td>R3YY4-9KNGC-9V2CC-944G4-7H8KB</td>
+                            <td>Smart OTP</td>
+                            <td>D5RE4S-ZW3E4-XTFV6B8-HYNU-J9IMN</td>
+                            <td>2016-05-25</td>
+                            <td>Active</td>
+                            <td><button type="submit" class="btn btn-secondary">Edit</button></td>
+                        </tr>
+                        <tr>
+                            <td>D5RS4-WA3ZE-4SXTF-6V7BG-Y8MHU</td>
+                            <td>X4SDC-RTFVBG-8NHUI-JM0KO-M9NUB</td>
+                            <td>Smart OTP</td>
+                            <td>HB8UTF-V6E4SX-ZW3AS-E4XTFV-6B8HY</td>
+                            <td>2014-12-05</td>
+                            <td>Active</td>
+                            <td><button type="submit" class="btn btn-secondary">Edit</button></td>
+                        </tr>
+                        <tr>
+                            <td>N9UGY-7TFVE-S4WA3-ZE4SX-THFV6</td>
+                            <td>J8BY7T-V6CR5-E4ZWS-EXD5CT-FVBG8H</td>
+                            <td>Smart OTP</td>
+                            <td>NUJ8HB-YV7T5R-XE4SZA-W3ZSE-4XTFV</td>
+                            <td>2011-08-12</td>
+                            <td>Active</td>
+                            <td><button type="submit" class="btn btn-secondary">Edit</button></td>
+                        </tr>
+                        <tr>
+                            <td>V6BY8-NHU9IN-8YT76R-E54W-O3WAZ</td>
+                            <td>8Y7TV6-DC5RE4-SXDCR-TFVBG-Y8NHU</td>
+                            <td>Smart OTP</td>
+                            <td>6B8YNH-U9B8Y-V7T6D5R-ESZWA-3SE4</td>
+                            <td>2012-06-11</td>
+                            <td>Active</td>
+                            <td><button type="submit" class="btn btn-secondary">Edit</button></td>
+                        </tr>
+                        <tr>
+                            <td>XTFV68-NHUJ9-IH8BGF-DCXE4-SZ4XT</td>
+                            <td>QZA3W-SE4XD-5CR6T-FV7BGY-8HUN9</td>
+                            <td>Smart OTP</td>
+                            <td>4SXDCE-TFV68N-HYU9IJ-MN8H-UTFV6</td>
+                            <td>2011-04-19</td>
+                            <td>Active</td>
+                            <td><button type="submit" class="btn btn-secondary">Edit</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="row align-items-center">
+                    <div class="col-sm-1 text-end ">
+                        <label>Page Size:</label>
+                    </div>
+                    <div class="col-sm-1">
+                        <select class="form-select" id="pageSize" required="">
+                            <option selected="true" value="15">15</option>
+                            <option value="30">30</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-6 ">
+                        <nav>
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item ">
+                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item active" aria-current="page">
+                                    <a class="page-link" href="#">2</a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" tabindex="1">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-sm-3 text-end">
+                        <p> Display 1-5 of 5 results.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Bordered Table -->
+    </section>

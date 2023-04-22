@@ -1,0 +1,169 @@
+﻿@{
+    ViewData["Title"] = "System Configuration";
+
+}
+@model IEnumerable<JKEY_INTERNAL.Models.SystemConfig>
+<div class="pagetitle">
+    <h1>System Configuration</h1>
+</div>
+
+<section class="section">
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Search Configuration</h5>
+            <div class="row g-3">
+                <div class="col-sm-5 col-xs-12">
+                    <label for="inputName" class="form-label">Config Name</label>
+                    <input type="text" class="form-control" id="inputName">
+                </div>
+                <div class="col-sm-5 col-xs-12">
+                    <label for="inputValue" class="form-label">Config Value</label>
+                    <input type="text" class="form-control" id="inputValue">
+                </div><div class="col-sm-5 col-xs-12">
+                    <label for="inputType" class="form-label">Config Type</label>
+                    <input type="text" class="form-control" id="inputType">
+                </div>
+                <div>
+                    <button type="button" class="btn btn-primary" onclick="searchSys()" id="Search">Search</button>
+                    <button type="reset" class="btn btn-secondary" id="Clear">Clear</button>
+                    <button type="button" class="btn btn-success ">
+                        <a href="/api/SystemConfig/SystemConfiguration/ADD">
+                            Add
+                        </a>
+
+                    </button>
+                    <button type="button" class="btn btn-danger " id="Delete">Delete</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="loading text-center">
+    </div>
+    <div class="card cardtable">
+    </div>
+</section>
+
+@section Scripts{
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+    <script>
+
+
+        var searchSys = function () {
+            var h = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Loading...'
+            $('.loading').html(h);
+
+            var configName = document.getElementById("inputName").value;
+            var inputValue = document.getElementById("inputValue").value;
+            var inputType = document.getElementById("inputType").value;
+            //var pageSize = document.getElementById("pageSize");
+
+
+            var url = "/api/SystemConfig/filter?pageIndex=1&pageSize=15"
+            if (configName) {
+                url += `&name=${configName}`;
+            }
+            if (inputValue) {
+                url += `&value=${inputValue}`;
+
+            }
+            if (inputType) {
+                url += `&type=${inputType}`;
+
+            }
+            console.log(url);
+
+            //var inputType = document.getElementById("inputType");
+            $.ajax({
+                type: "GET",
+                url: url,
+                dataType: "json",
+                success: function (result) {
+                    var html = '<div class="card-body">';
+                    html += '<h5 class="card-title">Configuration Table</h5>';
+                    html += '<table class="table table-bordered ">';
+                    html += '<thead>';
+                    html += '<tr>';
+                    html += '<th scope="col" class="text-center">#</th>';
+                    html += '<th scope="col">Config Name</th>';
+                    html += '<th scope="col">Config Value</th>';
+                    html += '<th scope="col">Config Type</th>';
+                    html += '<th scope="col">Config Description</th>';
+                    html += '<th scope="col">Status</th>';
+                    html += '<th scope="col">Edit</th>';
+                    html += '<th scope="col">Delete</th>';
+                    html += '</tr>';
+                    html += '</thead>';
+                    html += '<tbody class="tbody">';
+                    $.each(result.data.data, function (key, item) {
+                        let idsys = item.id;
+                        console.log(typeof item.id)
+                        html += '<tr>';
+                        html += '<td scope="col" class="text-center"><input class="form-check-input" name="type"  type="checkbox" value=' + item.id + ' id="checkSingle"></td>';
+                        html += '<td>' + item.name + '</td>';
+                        html += '<td>' + item.value + '</td>';
+                        html += '<td>' + item.type + '</td>';
+                        html += '<td>' + item.description + '</td>';
+                        html += '<td>' + item.active + '</td>';
+                        html += `<td><button type="button" class="btn btn-secondary">    <a href="/api/SystemConfig/SystemConfiguration/EDIT/${idsys}">Edit</a> </button></td>`;
+                        html += `<td><button type="button" class="btn btn-secondary delete" onclick="deleteConfig('${idsys}')">Delete</button></td>`;
+                        html += '</tr>';
+                    });
+                    html += '</tbody>';
+                    html += '</table>';
+                    html += '<div class="row align-items-center">';
+                    html += '<div class="col-sm-1 text-end ">';
+                    html += '<label>Page Size:</label>';
+                    html += '</div>';
+                    html += '<div class="col-sm-1">';
+                    html += '<select class="form-select" id="pageSize" required="">';
+                    html += '<option selected="true" value="15">15</option>';
+                    html += '<option value="30">30</option>';
+                    html += '<option value="50">50</option>';
+                    html += '<option value="100">100</option>';
+                    html += '</select>';
+                    html += '</div>';
+                    html += '<div class="col-sm-6 ">';
+                    html += ' <nav>';
+                    html += '<ul class="pagination justify-content-center">';
+                    html += ' <li class="page-item ">';
+                    html += '<a class="page-link" href="#" tabindex="-1">Previous</a>';
+                    html += '</li>';
+                    html += ' <li class="page-item ">';
+                    html += '<a class="page-link" href="#" tabindex="1">Next</a>';
+                    html += '</li>';
+                    html += '</ul>';
+                    html += '</nav>';
+                    html += '</div>';
+                    html += '<div class="col-sm-3 text-end">';
+                    html += ' <p> Display 1-5 of ' + result.data.total + ' results.</p>';
+                    html += '</div>';
+                    html += '</div>';
+                    html += '</div>';
+                    h = '';
+                    $('.cardtable').html(html);
+                    $('.loading').html(h);
+                }
+            });
+        };
+
+        function deleteConfig(id) {
+            console.log(id);
+            $.ajax({
+                type: "POST",
+                url: "/api/SystemConfig/Remove/" + id,
+                dataType: "text",
+                success: function () {
+                    alert("ok");
+                    searchSys();
+                }, error: function () {
+
+                }
+            });
+        };
+    </script>
+}

@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "KGZSd1Fud64izGk0X1wiwM9JATYYOlMvXiYByimYPapy/jleOk4BaJBj9+kHL4N0Y12HFSqedqWxzCb07EsItw==",
   "success": true,
   "projectFilePath": "C:\\Jits\\JKey\\ProjectJKey\\JKEY_DL\\JKEY_DL.csproj",
+=======
+  "dgSpecHash": "Wf02ZR7R5ZPSeRz6sf2CfwB971MO03aNhI0D5QstdhCn9vo3gYwzgtNNlBG2G5/NCPwvH9faZDezXr1J7UjwRg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\MinhHieuDev\\Desktop\\New folder (5)\\jkey_internal\\JKEY_DL\\JKEY_DL.csproj",
+>>>>>>> a061e3b2b86e3fd268423488910d6709415496fc
   "expectedPackageFiles": [
     "C:\\Users\\Thinkpad\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Thinkpad\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

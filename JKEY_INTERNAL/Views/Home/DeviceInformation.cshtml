@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Device Information";
+}
+    <div class="pagetitle">
+      <h1>Device Information</h1>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Device information</h5>
+          <form class="row g-3">
+            <div class="col-sm-5 col-xs-12">
+              <label for="inputUserID" class="form-label">User ID</label>
+                    <input type="text" class="form-control" id="inputUserID">
+            </div>
+            <div class="col-sm-5 col-xs-12">
+                    <label for="inputDeviceID" class="form-label">Device ID</label>
+                    <input type="text" class="form-control" id="inputDeviceID">
+            </div>
+            <div class="col-sm-5 col-xs-12">
+              <label for="selectAuthenType" class="form-label">Authen Type</label>
+                    <select class="form-select" id="selectAuthenType">
+                <option  selected="true" value="Active">Smart OTP</option>
+                <option  value="InActive">Advance OTP</option>
+              </select>
+            </div>
+            <div class="col-sm-5 col-xs-12">
+              <label for="selectStatus" class="form-label">Status</label>
+                    <select class="form-select" id="selectStatus">
+                <option selected="true" value="Active">Active</option>
+                <option  value="InActive">Inactive</option>
+              </select>
+            </div>
+            <div class="col-sm-10 col-xs-12">
+              <label for="textareaActiveCode" class="col-sm-2 col-form-label">Active Code</label>
+              <div>
+                        <textarea class="form-control" id="textareaActiveCode" style="height: 100px"></textarea>
+              </div>
+            </div>
+            <div class="col-sm-5 col-xs-12">
+              <label for="inputIssueDate" class="form-label">Issue Date</label>
+                    <input type="datetime-local" class="form-control" id="inputIssueDate">
+            </div>
+            <div class="col-sm-5 col-xs-12">
+                    <label for="inputActiveDate" class="form-label">Active Date</label>
+                    <input type="datetime-local" class="form-control" id="inputActiveDate">
+            </div>
+            <div>
+            <button type="submit" class="btn btn-primary">Unregister</button>
+            <button type="submit" class="btn btn-secondary">Back</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </section>  

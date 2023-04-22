@@ -1,0 +1,149 @@
+﻿@{
+    ViewData["Title"] = "User Management";
+}
+<div class="pagetitle">
+    <h1>User Management</h1>
+</div><!-- End Page Title -->
+
+<section class="section">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Search User</h5>
+            <form class="row g-3">
+                <div class="col-sm-5 col-xs-12">
+                    <label for="inputFullName" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="inputFullName">
+                </div>
+                <div class="col-sm-5 col-xs-12">
+                    <label for="inputUserName" class="form-label">User Name</label>
+                    <input type="text" class="form-control" id="inputUserName">
+                </div>
+                <div class="col-sm-5 col-xs-12">
+                    <label for="inputPhone" class="form-label">Phone</label>
+                    <input type="text" class="form-control" id="inputPhone">
+                </div>
+                <div class="col-sm-5 col-xs-12">
+                    <label for="inputEmail" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="inputEmail">
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                    <button type="reset" class="btn btn-secondary ">Clear</button>
+                    <button type="submit" class="btn btn-success ">Add</button>
+                    <button type="submit" class="btn btn-danger ">Delete</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">User Table</h5>
+            <table class="table table-bordered ">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center"><input class="form-check-input" type="checkbox" id="gridCheck1"></th>
+                        <th scope="col">User Name</th>
+                        <th scope="col">Full Name</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Author</th>
+                        <th scope="col">Created Date</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="col" class="text-center"><input class="form-check-input" type="checkbox" id="gridCheck1"></td>
+                        <td>brandonjacob</td>
+                        <td>Brandon Jacob</td>
+                        <td>0987654321</td>
+                        <td>brandonjacob@gmail.com</td>
+                        <td>admin</td>
+                        <td>2016-05-25</td>
+                        <td>Active</td>
+                        <td><button type="submit" class="btn btn-secondary">Edit</button></td>
+                    </tr>
+                    <tr>
+                        <td scope="col" class="text-center"><input class="form-check-input" type="checkbox" id="gridCheck1"></td>
+                        <td>bridiekessler</td>
+                        <td>Bridie Kessler</td>
+                        <td>0987654321</td>
+                        <td>bridiekessler123@gmail.com</td>
+                        <td>admin</td>
+                        <td>2014-12-05</td>
+                        <td>Active</td>
+                        <td><button type="submit" class="btn btn-secondary">Edit</button></td>
+                    </tr>
+                    <tr>
+                        <td scope="col" class="text-center"><input class="form-check-input" type="checkbox" id="gridCheck1"></td>
+                        <td>ashleighlangosh</td>
+                        <td>Ashleigh Langosh</td>
+                        <td>0987654321</td>
+                        <td>ashleighlangosh@gmail.com</td>
+                        <td>admin</td>
+                        <td>2011-08-12</td>
+                        <td>Active</td>
+                        <td><button type="submit" class="btn btn-secondary">Edit</button></td>
+                    </tr>
+                    <tr>
+                        <td scope="col" class="text-center"><input class="form-check-input" type="checkbox" id="gridCheck1"></td>
+                        <td>angusgrady</td>
+                        <td>Angus Grady</td>
+                        <td>0987654321</td>
+                        <td>angusgrady@gmail.com</td>
+                        <td>admin</td>
+                        <td>2012-06-11</td>
+                        <td>Active</td>
+                        <td><button type="submit" class="btn btn-secondary">Edit</button></td>
+                    </tr>
+                    <tr>
+                        <td scope="col" class="text-center"><input class="form-check-input" type="checkbox" id="gridCheck1"></td>
+                        <td>raheemlehner</td>
+                        <td>Raheem Lehner</td>
+                        <td>0987654321</td>
+                        <td>raheemlehner@gmail.com</td>
+                        <td>admin</td>
+                        <td>2011-04-19</td>
+                        <td>Active</td>
+                        <td><button type="submit" class="btn btn-secondary">Edit</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="row align-items-center">
+                <div class="col-sm-1 text-end ">
+                    <label>Page Size:</label>
+                </div>
+                <div class="col-sm-1">
+                    <select class="form-select" id="pageSize" required="">
+                        <option selected="true" value="15">15</option>
+                        <option value="30">30</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                </div>
+                <div class="col-sm-6 ">
+                    <nav>
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item ">
+                                <a class="page-link" href="#" tabindex="-1">Previous</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item active" aria-current="page">
+                                <a class="page-link" href="#">2</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" tabindex="1">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-sm-3 text-end">
+                    <p> Display 1-5 of 5 results.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

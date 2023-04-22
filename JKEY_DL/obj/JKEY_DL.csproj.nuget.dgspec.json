@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Jits\\JKey\\ProjectJKey\\JKEY_DL\\JKEY_DL.csproj": {}
   },
   "projects": {
@@ -12,6 +13,19 @@
         "projectPath": "C:\\Jits\\JKey\\ProjectJKey\\JKEY_COMMON\\JKEY_COMMON.csproj",
         "packagesPath": "C:\\Users\\Thinkpad\\.nuget\\packages\\",
         "outputPath": "C:\\Jits\\JKey\\ProjectJKey\\JKEY_COMMON\\obj\\",
+=======
+    "C:\\Users\\MinhHieuDev\\Desktop\\New folder (5)\\jkey_internal\\JKEY_DL\\JKEY_DL.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\MinhHieuDev\\Desktop\\New folder (5)\\jkey_internal\\JKEY_COMMON\\JKEY_COMMON.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\MinhHieuDev\\Desktop\\New folder (5)\\jkey_internal\\JKEY_COMMON\\JKEY_COMMON.csproj",
+        "projectName": "JKEY_COMMON",
+        "projectPath": "C:\\Users\\MinhHieuDev\\Desktop\\New folder (5)\\jkey_internal\\JKEY_COMMON\\JKEY_COMMON.csproj",
+        "packagesPath": "C:\\Users\\MinhHieuDev\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\MinhHieuDev\\Desktop\\New folder (5)\\jkey_internal\\JKEY_COMMON\\obj\\",
+>>>>>>> a061e3b2b86e3fd268423488910d6709415496fc
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Thinkpad\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -90,6 +104,7 @@
         }
       }
     },
+<<<<<<< HEAD
     "C:\\Jits\\JKey\\ProjectJKey\\JKEY_DL\\JKEY_DL.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -98,6 +113,16 @@
         "projectPath": "C:\\Jits\\JKey\\ProjectJKey\\JKEY_DL\\JKEY_DL.csproj",
         "packagesPath": "C:\\Users\\Thinkpad\\.nuget\\packages\\",
         "outputPath": "C:\\Jits\\JKey\\ProjectJKey\\JKEY_DL\\obj\\",
+=======
+    "C:\\Users\\MinhHieuDev\\Desktop\\New folder (5)\\jkey_internal\\JKEY_DL\\JKEY_DL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\MinhHieuDev\\Desktop\\New folder (5)\\jkey_internal\\JKEY_DL\\JKEY_DL.csproj",
+        "projectName": "JKEY_DL",
+        "projectPath": "C:\\Users\\MinhHieuDev\\Desktop\\New folder (5)\\jkey_internal\\JKEY_DL\\JKEY_DL.csproj",
+        "packagesPath": "C:\\Users\\MinhHieuDev\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\MinhHieuDev\\Desktop\\New folder (5)\\jkey_internal\\JKEY_DL\\obj\\",
+>>>>>>> a061e3b2b86e3fd268423488910d6709415496fc
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Thinkpad\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -115,8 +140,13 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+<<<<<<< HEAD
               "C:\\Jits\\JKey\\ProjectJKey\\JKEY_COMMON\\JKEY_COMMON.csproj": {
                 "projectPath": "C:\\Jits\\JKey\\ProjectJKey\\JKEY_COMMON\\JKEY_COMMON.csproj"
+=======
+              "C:\\Users\\MinhHieuDev\\Desktop\\New folder (5)\\jkey_internal\\JKEY_COMMON\\JKEY_COMMON.csproj": {
+                "projectPath": "C:\\Users\\MinhHieuDev\\Desktop\\New folder (5)\\jkey_internal\\JKEY_COMMON\\JKEY_COMMON.csproj"
+>>>>>>> a061e3b2b86e3fd268423488910d6709415496fc
               }
             }
           }

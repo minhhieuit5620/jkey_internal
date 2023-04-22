@@ -47,7 +47,11 @@ public partial class JkeyInternalContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+<<<<<<< HEAD
         => optionsBuilder.UseSqlServer("Server=DESKTOP-J7BL49I;Database=Jkey_internal;User ID=sa;Password=123456;TrustServerCertificate=True");
+=======
+        => optionsBuilder.UseSqlServer("Server=DESKTOP-1T0727L\\MINHHIEU;Database=Jkey_internal;uid=sa;pwd=1;Trusted_Connection=True;TrustServerCertificate=True");
+>>>>>>> a061e3b2b86e3fd268423488910d6709415496fc
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -131,13 +135,6 @@ public partial class JkeyInternalContext : DbContext
         modelBuilder.Entity<Role>(entity =>
         {
             entity.Property(e => e.Id).ValueGeneratedNever();
-            entity.Property(e => e.ConcurrencyStamp).UseCollation("Vietnamese_CI_AS");
-            entity.Property(e => e.Name)
-                .HasMaxLength(256)
-                .UseCollation("Vietnamese_CI_AS");
-            entity.Property(e => e.NormalizedName)
-                .HasMaxLength(256)
-                .UseCollation("Vietnamese_CI_AS");
             entity.Property(e => e.RoleName).UseCollation("Vietnamese_CI_AS");
         });
 
@@ -166,21 +163,20 @@ public partial class JkeyInternalContext : DbContext
             entity.ToTable("User");
 
             entity.Property(e => e.Id).ValueGeneratedNever();
-            entity.Property(e => e.ConcurrencyStamp).UseCollation("Vietnamese_CI_AS");
+            entity.Property(e => e.Address).HasMaxLength(500);
+            entity.Property(e => e.ConfirmPassWord).HasMaxLength(500);
+            entity.Property(e => e.DateCreated).HasColumnType("datetime");
+            entity.Property(e => e.DateModified).HasColumnType("datetime");
             entity.Property(e => e.Email)
                 .HasMaxLength(256)
                 .UseCollation("Vietnamese_CI_AS");
-            entity.Property(e => e.FullName).UseCollation("Vietnamese_CI_AS");
-            entity.Property(e => e.NormalizedEmail)
-                .HasMaxLength(256)
+            entity.Property(e => e.FullName)
+                .HasMaxLength(100)
                 .UseCollation("Vietnamese_CI_AS");
-            entity.Property(e => e.NormalizedUserName)
-                .HasMaxLength(256)
+            entity.Property(e => e.Password).HasMaxLength(500);
+            entity.Property(e => e.Phone)
+                .HasMaxLength(20)
                 .UseCollation("Vietnamese_CI_AS");
-            entity.Property(e => e.PasswordHash).UseCollation("Vietnamese_CI_AS");
-            entity.Property(e => e.Phone).UseCollation("Vietnamese_CI_AS");
-            entity.Property(e => e.PhoneNumber).UseCollation("Vietnamese_CI_AS");
-            entity.Property(e => e.SecurityStamp).UseCollation("Vietnamese_CI_AS");
             entity.Property(e => e.UserName)
                 .HasMaxLength(256)
                 .UseCollation("Vietnamese_CI_AS");

@@ -1,11 +1,15 @@
 ﻿using JKEY_INTERNAL.Models;
 using JKEY_INTERNAL.Models.CRUD_Model;
 using JKEY_INTERNAL.Models.CustomModel;
-using JKEY_INTERNAL.Models.Base;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualBasic;
 using System.Net;
 using JKEY_INTERNAL.Models.Attributes;
+using Microsoft.AspNetCore.Identity;
+using System.Net.Http.Headers;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Drawing.Printing;
 
 namespace JKEY_INTERNAL.Controllers
 {
@@ -22,11 +26,65 @@ namespace JKEY_INTERNAL.Controllers
             _logger = logger;
             _context = dbContext;
         }
+        
+            string Baseurl = "http://localhost:5147";
+        [Route("SystemConfiguration")]
+        public IActionResult SystemConfiguration()
+        {
 
-        public IActionResult Index()
+            List<SystemConfig> listSystemConfig = _context.SystemConfigs.OrderByDescending(x => x.UserCreated).ToList();
+
+            //List<Menu> Items = _context.Menus.ToList();
+            //int Count = Items.Count();
+            //return Ok(new { Items, Count });
+            return View(listSystemConfig);
+        }
+
+        [Route("SystemConfiguration/ADD")]
+        public IActionResult ConfigurationInformation()
         {
             return View();
         }
+
+        [Route("SystemConfiguration/EDIT/{ID}")]
+        public IActionResult ConfigurationInformationEdit()
+        {
+            return View();
+        }
+        
+        //public async Task<ActionResult> Index()
+        //{
+        //    ServiceResponse EmpInfo = new ServiceResponse();
+        //    SystemConfig EmpInfo1 = new SystemConfig();
+        //    using (var client = new HttpClient())
+        //    {
+        //        //Passing service base url
+        //        client.BaseAddress = new Uri(Baseurl);
+        //        client.DefaultRequestHeaders.Clear();
+        //        //Define request data format
+        //        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        //        //Sending request to find web api REST service resource GetAllEmployees using HttpClient
+        //        HttpResponseMessage Res = await client.GetAsync("api/SystemConfig");
+        //        //Checking the response is successful or not which is sent using HttpClient
+        //        if (Res.IsSuccessStatusCode)
+        //        {
+        //            //Storing the response details recieved from web api
+        //            var EmpResponse = Res.Content.ReadAsStringAsync().Result;
+        //            //Deserializing the response recieved from web api and storing into the Employee list
+        //            //EmpInfo.Data = EmpResponse;//
+        //            EmpInfo= JsonConvert.DeserializeObject<ServiceResponse>(EmpResponse);// EmpResponse;//  op.DeserializeObject<List<SystemConfig>>(EmpResponse);
+
+        //            if (EmpInfo.Success)
+        //            {
+        //               // EmpInfo1 =EmpInfo;
+        //                return View(EmpInfo.Data);
+        //            }
+
+        //        }
+        //        //returning the employee list to view
+        //        return View(EmpInfo);
+        //    }
+        // }
 
         /// <summary>
         /// Lấy toàn bộ system config
@@ -62,22 +120,50 @@ namespace JKEY_INTERNAL.Controllers
 
         [HttpGet("filter")]
         public ServiceResponse FilterEmployee(
-          [FromQuery] string? search,// dữ liệu cần tìm kiếm        
+          [FromQuery] string? value="",// dữ liệu cần tìm kiếm        
+          [FromQuery] string? name="",// dữ liệu cần tìm kiếm        
+          [FromQuery] string? type  ="",// dữ liệu cần tìm kiếm        
           [FromQuery] int pageIndex=1,// trang hiện tại
           [FromQuery] int pageSize=15)//số bản ghi trong 1 trang
         {
 
             try
             {
-
-
-                return new ServiceResponse
+                int skip = ((pageIndex - 1) * pageSize);
+                var lst = _context.SystemConfigs.Where(x => x.Value.Contains(value) && x.Name.Contains(name) && x.Type.Contains(type)).OrderByDescending(y => y.DateCreated).ToList();
+                
+                if (pageSize != 0)
                 {
-                    StatusCode = StatusCodes.Status200OK,
-                    Success = true,
-                    Data = ""
-                };
+                    var data = lst.Skip(skip).Take(pageSize);
+                    int pages = lst.Count() % pageSize >= 1 ? lst.Count() / pageSize + 1 : lst.Count() / pageSize;
+                    return new ServiceResponse 
+                    { 
+                        StatusCode=StatusCodes.Status200OK,
+                        Success = true,
+                        Data = new
+                        {
+                            data = data,
+                            page = pages,
+                            total = lst.Count()
+                        }
+                    };
+                }
+                else
+                {
+                    return new ServiceResponse {
+                        StatusCode = StatusCodes.Status200OK,
+                        Success = true,
+                        Data = new
+                        {
+                            data = lst,
+                            pages = 0,
+                            total = lst.Count()
+                        }
+                       
+                    };
+                }
 
+               
             }
             catch (Exception ex)
             {
@@ -105,6 +191,7 @@ namespace JKEY_INTERNAL.Controllers
 
             try
             {
+
                 SystemConfig systemConfig = _context.SystemConfigs.Where(x => x.Id == ID).FirstOrDefault();
 
                 if (systemConfig != null)
@@ -150,36 +237,62 @@ namespace JKEY_INTERNAL.Controllers
         [HttpPost("[action]")]
         public ServiceResponse Insert([FromBody] SystemConfig payload)
         {
-            var check = ValidateRequestData(payload);
-            if (check.Success == false)
+            try
             {
+                if(payload == null)
+                {
+                    return new ServiceResponse
+                    {
+                        StatusCode = StatusCodes.Status400BadRequest,
+                        Success = false,
+                        Data = "Dữ liệu đầu vào của system config đang rỗng"
+                    };
+                }
+                else
+                {
+                    var check = ValidateRequestData(payload);
+                    if (check.Success == false)
+                    {
+                        return new ServiceResponse
+                        {
+                            StatusCode = StatusCodes.Status400BadRequest,
+                            Success = false,
+                            Data = check.Data
+                        };
+                    }
+                    SystemConfig systemConfig = new SystemConfig();
+                    Guid id = Guid.NewGuid();
+                    systemConfig.Id = id;
+                    systemConfig.Description = payload.Description;
+                    systemConfig.Name = payload.Name;
+                    systemConfig.Value = payload.Value;
+                    systemConfig.Active = (bool)payload.Active;
+                    systemConfig.Type = payload.Type;
+                    systemConfig.UserCreated = Guid.NewGuid();                    
+                    systemConfig.DateCreated = DateTime.Now;                    
+
+                    _context.SystemConfigs.Add(systemConfig);
+                    _context.SaveChanges();
+                    return new ServiceResponse
+                    {
+                        StatusCode = StatusCodes.Status200OK,
+                        Success = true,
+                        Data = id
+                    };
+                }
+                
+            }
+            catch (Exception ex)
+            {
+
                 return new ServiceResponse
                 {
-                    StatusCode = StatusCodes.Status400BadRequest,
+                    StatusCode = StatusCodes.Status500InternalServerError,
                     Success = false,
-                    Data = check.Data
+                    Data = ex
                 };
+              
             }
-            SystemConfig systemConfig = new SystemConfig();
-            Guid id = Guid.NewGuid();
-            systemConfig.Id = id;
-            systemConfig.Description = payload.Description;
-            systemConfig.Name = payload.Name;
-            systemConfig.Value = payload.Value;
-            systemConfig.Type = payload.Type;
-            systemConfig.UserCreated = payload.UserCreated;
-            systemConfig.UserModified = payload.UserModified;
-            systemConfig.DateCreated = DateTime.Now;
-            systemConfig.DateModified = DateTime.Now;
-
-            _context.SystemConfigs.Add(systemConfig);
-            _context.SaveChanges();
-            return new ServiceResponse
-            {
-                StatusCode = StatusCodes.Status200OK,
-                Success = true,
-                Data = id
-            };
 
         }
 
@@ -194,58 +307,71 @@ namespace JKEY_INTERNAL.Controllers
         {
             try
             {
-                var check = ValidateRequestData(payload);
-                if (check.Success == false)
+               
+                if (payload == null)
                 {
                     return new ServiceResponse
                     {
                         StatusCode = StatusCodes.Status400BadRequest,
                         Success = false,
-                        Data = check.Data
+                        Data = "Dữ liệu đầu vào của system config đang rỗng"
                     };
                 }
-
-                if (ID != Guid.Empty)
+               else
                 {
-                    SystemConfig systemConfig = _context.SystemConfigs.FirstOrDefault(x => x.Id == ID);
-                    if (systemConfig == null)
+                    var check = ValidateRequestData(payload);
+                    if (check.Success == false)
                     {
                         return new ServiceResponse
                         {
-
                             StatusCode = StatusCodes.Status400BadRequest,
                             Success = false,
-                            Data = "Không có bản ghi nào được tìm thấy"
+                            Data = check.Data
                         };
-
                     }
 
-                    systemConfig.Id = ID;
-                    systemConfig.Description = payload.Description;
-                    systemConfig.Name = payload.Name;
-                    systemConfig.Value = payload.Value;
-                    systemConfig.Type = payload.Type;
-                    systemConfig.UserCreated = payload.UserCreated;
-                    systemConfig.UserModified = payload.UserModified;
-                    systemConfig.DateCreated = payload.DateCreated;
-                    systemConfig.DateModified = DateTime.Now;
+                    if (ID != Guid.Empty)
+                    {
+                        SystemConfig systemConfig = _context.SystemConfigs.FirstOrDefault(x => x.Id == ID);
+                        if (systemConfig == null)
+                        {
+                            return new ServiceResponse
+                            {
 
-                    _context.SaveChanges();
-                    return new ServiceResponse
+                                StatusCode = StatusCodes.Status400BadRequest,
+                                Success = false,
+                                Data = "Không có bản ghi nào được tìm thấy"
+                            };
+
+                        }
+
+                        systemConfig.Id = ID;
+                        systemConfig.Description = payload.Description;
+                        systemConfig.Name = payload.Name;
+                        systemConfig.Value = payload.Value;
+                        systemConfig.Type = payload.Type;
+                        systemConfig.UserCreated = payload.UserCreated;
+                        systemConfig.UserModified = payload.UserModified;
+                        systemConfig.DateCreated = payload.DateCreated;
+                        systemConfig.DateModified = DateTime.Now;
+
+                        _context.SaveChanges();
+                        return new ServiceResponse
+                        {
+                            StatusCode = StatusCodes.Status200OK,
+                            Success = true,
+                            Data = ID
+                        };
+                    }
+                    else
                     {
-                        StatusCode = StatusCodes.Status200OK,
-                        Success = true,
-                        Data = ID
-                    };
-                }
-                else
-                {
-                    return new ServiceResponse
-                    {
-                        StatusCode = StatusCodes.Status400BadRequest,
-                        Success = false,
-                        Data = "ID system config không hợp lệ"
-                    };
+                        return new ServiceResponse
+                        {
+                            StatusCode = StatusCodes.Status400BadRequest,
+                            Success = false,
+                            Data = "ID system config không hợp lệ"
+                        };
+                    } 
                 }
             }
             catch (Exception ex)
