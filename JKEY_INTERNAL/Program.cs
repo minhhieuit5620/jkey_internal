@@ -22,6 +22,7 @@ localizationOptions.SupportedCultures = supportedCulture;
 localizationOptions.SupportedUICultures = supportedCulture;
 localizationOptions.SetDefaultCulture("en-US");
 localizationOptions.ApplyCurrentCultureToResponseHeaders = true;
+var connection = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<JkeyInternalContext>(x => x.UseSqlServer(connection));
 //// Add services to the container.
