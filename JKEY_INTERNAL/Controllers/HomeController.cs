@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-
-=======
-﻿//using JKEY_COMMON.Entities;
 
 using JKEY_INTERNAL.Models;
->>>>>>> a061e3b2b86e3fd268423488910d6709415496fc
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Serilog;

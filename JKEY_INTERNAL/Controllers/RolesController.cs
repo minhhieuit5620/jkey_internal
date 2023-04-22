@@ -166,10 +166,7 @@ namespace JKEY_INTERNAL.Controllers
                     RoleName = role.RoleName,
                     Active = role.Active,
                     UserCreated = role.UserCreated,
-                    UserModified = role.UserModified,
-                    Name = role.Name,
-                    NormalizedName = role.NormalizedName,
-                    ConcurrencyStamp = role.ConcurrencyStamp,
+                    UserModified = role.UserModified,                 
                     DateCreated = DateTime.UtcNow,
                     DateModified = DateTime.UtcNow
                 };
@@ -203,7 +200,6 @@ namespace JKEY_INTERNAL.Controllers
                 oldData.Active = role.Active;
                 oldData.UserCreated = role.UserCreated;
                 oldData.UserModified = role.UserModified;
-                oldData.Name = role.Name;
                 oldData.DateCreated = DateTime.UtcNow;
                 oldData.DateModified = DateTime.UtcNow;
                 // Update other properties as needed
