@@ -1,8 +1,13 @@
+<<<<<<< HEAD
+
+=======
 ﻿//using JKEY_COMMON.Entities;
 
 using JKEY_INTERNAL.Models;
+>>>>>>> a061e3b2b86e3fd268423488910d6709415496fc
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using System.Diagnostics;
 
 namespace JKEY_INTERNAL.Controllers
@@ -21,7 +26,7 @@ namespace JKEY_INTERNAL.Controllers
 
         public IActionResult Index()
         {
-
+           
             List<Menu> Items =  _context.Menus.ToList();
             //int Count = Items.Count();
             //return Ok(new { Items, Count });
