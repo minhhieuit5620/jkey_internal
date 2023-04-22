@@ -11538,28 +11538,36 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Thinkpad\\.nuget\\packages\\": {}
+    "C:\\Users\\MinhHieuDev\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Jits\\JKey\\ProjectJKey\\JKEY_INTERNAL\\JKEY_INTERNAL.csproj",
+      "projectUniqueName": "C:\\Users\\MinhHieuDev\\Desktop\\New folder (4)\\jkey_internal\\JKEY_INTERNAL\\JKEY_INTERNAL.csproj",
       "projectName": "JKEY_INTERNAL",
-      "projectPath": "C:\\Jits\\JKey\\ProjectJKey\\JKEY_INTERNAL\\JKEY_INTERNAL.csproj",
-      "packagesPath": "C:\\Users\\Thinkpad\\.nuget\\packages\\",
-      "outputPath": "C:\\Jits\\JKey\\ProjectJKey\\JKEY_INTERNAL\\obj\\",
+      "projectPath": "C:\\Users\\MinhHieuDev\\Desktop\\New folder (4)\\jkey_internal\\JKEY_INTERNAL\\JKEY_INTERNAL.csproj",
+      "packagesPath": "C:\\Users\\MinhHieuDev\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\MinhHieuDev\\Desktop\\New folder (4)\\jkey_internal\\JKEY_INTERNAL\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Thinkpad\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\MinhHieuDev\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://sitecore.myget.org/F/sc-packages/api/v3/index.json": {}
+        "C:\\Program Files\\dotnet\\library-packs": {},
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
@@ -11645,7 +11653,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   },
