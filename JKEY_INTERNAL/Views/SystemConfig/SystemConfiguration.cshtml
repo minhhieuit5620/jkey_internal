@@ -7,6 +7,12 @@
     <h1>System Configuration</h1>
 </div>
 
+<style>
+    .width-page{
+        width: 50px;
+        text-align: center;
+    }
+</style>
 <section class="section">
 
     <div class="card">
@@ -26,13 +32,13 @@
                 </div>
                 <div>
                     <button type="button" class="btn btn-primary" onclick="searchSys()" id="Search">Search</button>
-                    <button type="reset" class="btn btn-secondary" id="Clear">Clear</button>
-                    <button type="button" class="btn btn-success ">
-                        <a href="/api/SystemConfig/SystemConfiguration/ADD">
+                    <button type="button" class="btn btn-secondary" id="Clear" onclick="clearInput()">Clear</button>
+                 
+                        <a class="btn btn-success " href="/api/SystemConfig/SystemConfiguration/ADD">
                             Add
                         </a>
 
-                    </button>
+                 
                     <button type="button" class="btn btn-danger " id="Delete">Delete</button>
                 </div>
             </div>
@@ -60,7 +66,8 @@
             var configName = document.getElementById("inputName").value;
             var inputValue = document.getElementById("inputValue").value;
             var inputType = document.getElementById("inputType").value;
-            //var pageSize = document.getElementById("pageSize");
+
+           
 
 
             var url = "/api/SystemConfig/filter?pageIndex=1&pageSize=15"
@@ -74,10 +81,13 @@
             if (inputType) {
                 url += `&type=${inputType}`;
 
-            }
-            console.log(url);
-
+            }            
+            genUI(url)
             //var inputType = document.getElementById("inputType");
+         
+        };
+
+        function genUI(url,pageSize,indexPage){
             $.ajax({
                 type: "GET",
                 url: url,
@@ -88,7 +98,7 @@
                     html += '<table class="table table-bordered ">';
                     html += '<thead>';
                     html += '<tr>';
-                    html += '<th scope="col" class="text-center">#</th>';
+
                     html += '<th scope="col">Config Name</th>';
                     html += '<th scope="col">Config Value</th>';
                     html += '<th scope="col">Config Type</th>';
@@ -101,16 +111,21 @@
                     html += '<tbody class="tbody">';
                     $.each(result.data.data, function (key, item) {
                         let idsys = item.id;
-                        console.log(typeof item.id)
                         html += '<tr>';
-                        html += '<td scope="col" class="text-center"><input class="form-check-input" name="type"  type="checkbox" value=' + item.id + ' id="checkSingle"></td>';
-                        html += '<td>' + item.name + '</td>';
+                        html += `<td>  <a href="/api/SystemConfig/SystemConfiguration/EDIT/${idsys}">` + item.name + '</a></td>';
                         html += '<td>' + item.value + '</td>';
                         html += '<td>' + item.type + '</td>';
                         html += '<td>' + item.description + '</td>';
-                        html += '<td>' + item.active + '</td>';
-                        html += `<td><button type="button" class="btn btn-secondary">    <a href="/api/SystemConfig/SystemConfiguration/EDIT/${idsys}">Edit</a> </button></td>`;
-                        html += `<td><button type="button" class="btn btn-secondary delete" onclick="deleteConfig('${idsys}')">Delete</button></td>`;
+                        if (item.active == true) {
+                            html += '<td> <div class="btn btn-sm btn-success ">Active</div></td>';
+                        }
+                        else {
+                            html += '<td> <div class="btn btn-sm btn-danger ">InActive</div></td>';
+
+                        }
+
+                        html += `<td>    <a class="btn btn-secondary" href="/api/SystemConfig/SystemConfiguration/EDIT/${idsys}">Edit</a> </td>`;
+                        html += `<td><button type="button" class="btn btn-danger delete" onclick="deleteConfig('${idsys}')">Delete</button></td>`;
                         html += '</tr>';
                     });
                     html += '</tbody>';
@@ -120,21 +135,25 @@
                     html += '<label>Page Size:</label>';
                     html += '</div>';
                     html += '<div class="col-sm-1">';
-                    html += '<select class="form-select" id="pageSize" required="">';
+                    html += '<select class="form-select" onchange="selectPageSize()" id="pageSize" required="">';
                     html += '<option selected="true" value="15">15</option>';
                     html += '<option value="30">30</option>';
                     html += '<option value="50">50</option>';
                     html += '<option value="100">100</option>';
-                    html += '</select>';
+                    html += '</select>';                   
+                  
                     html += '</div>';
                     html += '<div class="col-sm-6 ">';
                     html += ' <nav>';
                     html += '<ul class="pagination justify-content-center">';
                     html += ' <li class="page-item ">';
-                    html += '<a class="page-link" href="#" tabindex="-1">Previous</a>';
+                    html += '<a class="page-link" >Previous</a>';
                     html += '</li>';
                     html += ' <li class="page-item ">';
-                    html += '<a class="page-link" href="#" tabindex="1">Next</a>';
+                    html += '<input class="page-link width-page" id="IndexPage" onblur="changePage()" value="1" />';
+                    html += '</li>';
+                    html += ' <li class="page-item ">';
+                    html += '<a class="page-link"  >Next</a>';
                     html += '</li>';
                     html += '</ul>';
                     html += '</nav>';
@@ -147,9 +166,91 @@
                     h = '';
                     $('.cardtable').html(html);
                     $('.loading').html(h);
+                    if(pageSize){
+                        document.getElementById("pageSize").value = pageSize;
+
+                    }
+                    if (indexPage) {
+                        document.getElementById("IndexPage").value = indexPage;
+
+                    }
                 }
             });
-        };
+        }
+
+
+        ///Clear input search
+        function clearInput(){            
+           // document.getElementById("selectStatus").value = valueRes.active;
+            document.getElementById("inputName").value="";
+            document.getElementById("inputValue").value="";
+            document.getElementById("inputType").value="";
+        }
+
+
+        function selectPageSize(){
+
+            var configName = document.getElementById("inputName").value;
+            var inputValue = document.getElementById("inputValue").value;
+            var inputType = document.getElementById("inputType").value;
+
+
+            var pageSize = document.getElementById("pageSize").value;
+            var url = "/api/SystemConfig/filter?"
+            if (indexPage) {
+
+                url += `pageIndex=${indexPage}`;
+            }
+            if (configName) {
+                url += `&name=${configName}`;
+            }
+            if (inputValue) {
+                url += `&value=${inputValue}`;
+
+            }
+            if (inputType) {
+                url += `&type=${inputType}`;
+
+            }
+            if (pageSize) {
+
+                url += `&pageSize=${pageSize}`;
+            }
+          
+            genUI(url, pageSize, indexPage);
+        }
+
+        function changePage(){
+            var configName = document.getElementById("inputName").value;
+            var inputValue = document.getElementById("inputValue").value;
+            var inputType = document.getElementById("inputType").value;
+            var indexPage = document.getElementById("IndexPage").value;
+
+            var pageSize = document.getElementById("pageSize").value;
+            var url = "/api/SystemConfig/filter?"
+            if (indexPage) {
+
+                url += `pageIndex=${indexPage}`;
+            }
+            if (configName) {
+                url += `&name=${configName}`;
+            }
+            if (inputValue) {
+                url += `&value=${inputValue}`;
+
+            }
+            if (inputType) {
+                url += `&type=${inputType}`;
+
+            }
+            if (pageSize) {
+
+                url += `&pageSize=${pageSize}`;
+            }
+            
+            genUI(url, pageSize,indexPage);
+        }
+
 
         function deleteConfig(id) {
             console.log(id);

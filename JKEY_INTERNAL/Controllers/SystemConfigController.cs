@@ -26,8 +26,7 @@ namespace JKEY_INTERNAL.Controllers
             _logger = logger;
             _context = dbContext;
         }
-        
-            string Baseurl = "http://localhost:5147";
+                   
         [Route("SystemConfiguration")]
         public IActionResult SystemConfiguration()
         {
@@ -349,10 +348,9 @@ namespace JKEY_INTERNAL.Controllers
                         systemConfig.Description = payload.Description;
                         systemConfig.Name = payload.Name;
                         systemConfig.Value = payload.Value;
-                        systemConfig.Type = payload.Type;
-                        systemConfig.UserCreated = payload.UserCreated;
-                        systemConfig.UserModified = payload.UserModified;
-                        systemConfig.DateCreated = payload.DateCreated;
+                        systemConfig.Type = payload.Type;                       
+                        systemConfig.Active = payload.Active;
+                        systemConfig.UserModified = Guid.NewGuid();
                         systemConfig.DateModified = DateTime.Now;
 
                         _context.SaveChanges();

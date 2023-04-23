@@ -39,7 +39,7 @@
                         </div>
                     </div>
                     <div>
-                    <button type="button" class="btn btn-primary" onclick="addSys()">Save</button>
+                    <button type="button" class="btn btn-primary" id="clickEdit"  >Save</button>
                         <button type="reset" class="btn btn-secondary ">
                             <a href="/api/SystemConfig/SystemConfiguration">
                                 Back
@@ -62,94 +62,66 @@
 
     <script>
 
-        window.onload = (event) => {
-           
-            const queryString = window.location.search;
-            debugger;
-            var arr=queryString.split('/');
-            var id = arr[arr.length];
-            console.log("abc",arr);
-            //var id1=id[0];
-            console.log(id);
+        $(document).ready(function () {
+                        
+            var url1 = $(location).attr('href');       
+            var arr = url1.split('/');
+            var id = arr[arr.length-1];    
 
+             $.ajax({
+                    url: "/api/SystemConfig/"+id,
+                    data: id=id,
+                    type: "GET",
+                    contentType: "application/json;charset=utf-8",
+                    dataType: "json",
+                    success: function (result) {
+                        var valueRes = result.data;
+                        $('#inputConfigName').val( valueRes.name );
+                        $('#inputConfigType').val(valueRes.type);
+                        $('#inputConfigValue').val(valueRes.value);
+                        document.getElementById("selectStatus").value = valueRes.active;                   
+                        $('#textareaConfigDes').val( valueRes.description );                   
+                    },
+                });
 
-            // $.ajax({
-            //    url: "/api/SystemConfig/"+id,
-            //    data: ,
-            //    type: "POST",
-            //    contentType: "application/json;charset=utf-8",
-            //    dataType: "json",
-            //    success: function (result) {
-            //       alert("success")
-            //    },
-            //});
-        };
-
-        function addSys(){
-            var configName = document.getElementById("inputConfigName").value;
-            var inputValue = document.getElementById("inputConfigValue").value;
-            var inputType = document.getElementById("inputConfigType").value;
-            var inputStatus = document.getElementById("selectStatus").value;
-            var status
-            if (inputStatus=="true"){
-                status=true;
-            }else{
-                status=false;
-            }
-            var inputConfigDes = document.getElementById("textareaConfigDes").value;
-
-
-            var sysObj = {
-                name: configName,
-                value: inputValue,
-                type: inputType,
-                active: status,
-                description: inputConfigDes
-            };
-           
-
-        }
-
-        function getAllUrlParams(url) {
-            var queryString = url ? url.split('?')[1] : window.location.search.slice(1);
-            var obj = {};
-
-            if (queryString) {
-                queryString = queryString.split('#')[0];
-                var arr = queryString.split('&');
-
-                for (var i = 0; i < arr.length; i++) {
-                    var a = arr[i].split('=');
-                    var paramName = a[0];
-                    var paramValue = typeof (a[1]) === 'undefined' ? true : a[1];
-
-                    paramName = paramName.toLowerCase();
-                    if (typeof paramValue === 'string') paramValue = paramValue.toLowerCase();
-
-                    if (paramName.match(/\[(\d+)?\]$/)) {
-                        var key = paramName.replace(/\[(\d+)?\]/, '');
-                        if (!obj[key]) obj[key] = [];
-
-                        if (paramName.match(/\[\d+\]$/)) {
-                            var index = /\[(\d+)\]/.exec(paramName)[1];
-                            obj[key][index] = paramValue;
-                        } else {
-                            obj[key].push(paramValue);
-                        }
-                    } else {
-                        if (!obj[paramName]) {
-                            obj[paramName] = paramValue;
-                        } else if (obj[paramName] && typeof obj[paramName] === 'string') {
-                            obj[paramName] = [obj[paramName]];
-                            obj[paramName].push(paramValue);
-                        } else {
-                            obj[paramName].push(paramValue);
-                        }
-                    }
+            $("#clickEdit").click(function () {
+                var configName = document.getElementById("inputConfigName").value;
+                var inputValue = document.getElementById("inputConfigValue").value;
+                var inputType = document.getElementById("inputConfigType").value;
+                var inputStatus = document.getElementById("selectStatus").value;
+                var status=false;
+                if (inputStatus == "true") {
+                    status = true;
+                } else {
+                    status = false;
                 }
-            }
+                var inputConfigDes = document.getElementById("textareaConfigDes").value;
+                var sysObj = {
+                    name: configName,
+                    value: inputValue,
+                    type: inputType,
+                    active: status,
+                    description: inputConfigDes
+                };
+                var check=id;
+                edit(sysObj,check);
+           
+            });
+        });
 
-            return obj;
+        function edit(sysObj, check) {
+            $.ajax({                
+                url: "/api/SystemConfig/Update/"+check,              
+                data: JSON.stringify(sysObj),
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",               
+                success: function (result) {
+
+                    var res=result
+                    alert(res)
+                },
+            });
         }
         
     </script>
