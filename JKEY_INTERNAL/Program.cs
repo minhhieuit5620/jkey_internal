@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+using JKEY_INTERNAL.Models;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using Serilog;
+using Serilog.Formatting.Elasticsearch;
+using Serilog.Sinks.Elasticsearch;
+using System.Globalization;
+=======
 ﻿
 using JKEY_INTERNAL.Models;
 using JKEY_INTERNAL.Services;
@@ -7,15 +17,42 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+>>>>>>> a061e3b2b86e3fd268423488910d6709415496fc
 
 var builder = WebApplication.CreateBuilder(args);
 
 //Connect DB
 var connection = builder.Configuration.GetConnectionString("DefaultConnection");
+<<<<<<< HEAD
+builder.Services.AddLocalization();
+var localizationOptions = new RequestLocalizationOptions();
+var supportedCulture = new[]
+{
+    new CultureInfo("en-US"),
+    new CultureInfo("vi-VN")
+};
+localizationOptions.SupportedCultures = supportedCulture;
+localizationOptions.SupportedUICultures = supportedCulture;
+localizationOptions.SetDefaultCulture("en-US");
+localizationOptions.ApplyCurrentCultureToResponseHeaders = true;
+var connection = builder.Configuration.GetConnectionString("DefaultConnection");
+=======
+>>>>>>> a061e3b2b86e3fd268423488910d6709415496fc
 
 builder.Services.AddDbContext<JkeyInternalContext>(x => x.UseSqlServer(connection));
 //// Add services to the container.
 builder.Services.AddControllersWithViews();
+<<<<<<< HEAD
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminPolicy", policy => policy.RequireRole("Admin"));
+    options.AddPolicy("UserPolicy", policy => policy.RequireRole("User"));
+});
+builder.Services.AddLocalization();
+var app = builder.Build();
+
+app.UseRequestLocalization(localizationOptions);
+=======
 
 
 
@@ -63,12 +100,21 @@ Cache.Init("Hazelcast", "localhost:5701", "dev", "", 0);
 //Cache.InitHazelcast("Hazelcast", "localhost:5701");
 
 var app = builder.Build();
+>>>>>>> a061e3b2b86e3fd268423488910d6709415496fc
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
 }
+Log.Logger = new LoggerConfiguration().Enrich.FromLogContext().WriteTo.Sink(new ElasticsearchSink(new ElasticsearchSinkOptions(new Uri("http://localhost:32832"))
+{
+    AutoRegisterTemplate = true,
+    IndexFormat = "api-gateWay-vm-241",
+    ModifyConnectionSettings = x => x.BasicAuthentication("elastic", "123456"),
+    CustomFormatter = new ElasticsearchJsonFormatter()
+})).CreateLogger();
+
 app.UseStaticFiles();
 
 app.UseRouting();
